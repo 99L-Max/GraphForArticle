@@ -1,101 +1,74 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GraphForArticle
 {
-    public partial class FormSettingsLine : Form
+    partial class FormSettingsLine : Form
     {
-        //Цвета
-        public static readonly Color[] colors = {
-            Color.Red, Color.Orange, Color.Yellow, Color.Green, Color.Cyan,
-            Color.Blue, Color.Purple, Color.Pink, Color.Brown, Color.Black
-        };
         private SeriesCollection series;
-        private PictureBox[] pictureBoxColors = new PictureBox[colors.Length];//Выбор цвета
+        private int selectedIndex = 0;
+        private NumericUpDown[] numericsRGB = new NumericUpDown[3];
         public FormSettingsLine(SeriesCollection series)
         {
             InitializeComponent();
+            numericsRGB[0] = numericUpDownRed;
+            numericsRGB[1] = numericUpDownGreen;
+            numericsRGB[2] = numericUpDownBlue;
             this.series = series;
             numericUpDownNumberLine.Maximum = this.series.Count;
             numericUpDownNumberLine_ValueChanged(null, null);
-            //Настройки панели для изменения цветов
-            int delta = 15;
-            int countCollumns = colors.Length / 2;
-            int picWidth = (groupBoxColors.Width - delta * (countCollumns + 1)) / countCollumns;
-            int picHeight = (groupBoxColors.Height - 3 * delta) / 2;
-            int posLine, posCollumn;
-            for (int i = 0; i < pictureBoxColors.Length; i++)
-            {
-                posCollumn = i % countCollumns;
-                posLine = i / countCollumns;
-                pictureBoxColors[i] = new PictureBox
-                {
-                    Size = new Size(picWidth, picHeight),
-                    Location = new Point(picWidth * posCollumn + delta * (posCollumn + 1), picHeight * posLine + delta * (posLine + 1) + 7),
-                    BackColor = this.series[i].Color,
-                    Name = i.ToString()
-                };
-                groupBoxColors.Controls.Add(pictureBoxColors[i]);
-                pictureBoxColors[i].Click += new System.EventHandler(pictureBoxColor_Click);
-            }
         }
-        //Смена графика
-        private void numericUpDownNumberLine_ValueChanged(object sender, System.EventArgs e)
+        //Вернуть цвет на форму
+        private void SetColorLineOnForm()
         {
-            int index = (int)numericUpDownNumberLine.Value - 1;
-            comboBoxTypeLine.SelectedIndex = series[index].BorderDashStyle == ChartDashStyle.Solid ? 0 : 1;
-            numericUpDownBorderWidth.Value = series[index].BorderWidth;
-            pictureBoxCurrentColor.BackColor = series[index].Color;
+            labelCurrentColor.BackColor = series[selectedIndex].Color;
+            //Отвязать обработку события, чтобы метод
+            //numericUpDownRGB_ValueChanged не вызывался три раза
+            //и чтобы цвет определился корректно
+            foreach (var el in numericsRGB)
+                el.ValueChanged -= numericUpDownRGB_ValueChanged;
+            numericUpDownRed.Value = labelCurrentColor.BackColor.R;
+            numericUpDownGreen.Value = labelCurrentColor.BackColor.G;
+            numericUpDownBlue.Value = labelCurrentColor.BackColor.B;
+            //Привязать обработчик обратно
+            foreach (var el in numericsRGB)
+                el.ValueChanged += numericUpDownRGB_ValueChanged;
         }
-        //Выбран цвет
-        private void pictureBoxColor_Click(object sender, System.EventArgs e)
+        //Выбор номера графика
+        private void numericUpDownNumberLine_ValueChanged(object sender, EventArgs e)
         {
-            pictureBoxCurrentColor.BackColor = (sender as PictureBox).BackColor;
-            int index = (int)numericUpDownNumberLine.Value - 1;
-            if (pictureBoxCurrentColor.BackColor != series[index].Color)
-            {
-                for (int i = 0; i < series.Count; i++)
-                {
-                    if (series[i].Color == pictureBoxCurrentColor.BackColor)
-                    {
-                        series[i].Color = series[index].Color;
-                        series[index].Color = pictureBoxCurrentColor.BackColor;
-                        break;
-                    }
-                }
-            }
+            selectedIndex = (int)numericUpDownNumberLine.Value - 1;
+            numericUpDownBorderWidth.Value = series[selectedIndex].BorderWidth;
+            comboBoxTypeLine.SelectedIndex = series[selectedIndex].BorderDashStyle == ChartDashStyle.Solid ? 0 : 1;
+            SetColorLineOnForm();
         }
         //Тип линии
-        private void comboBoxTypeLine_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void comboBoxTypeLine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Применить тип линии и толщину ко всем
-            if (checkBoxApplyToAll.Checked)
-            {
-                ChartDashStyle style = comboBoxTypeLine.SelectedIndex == 0 ? ChartDashStyle.Solid : ChartDashStyle.Dash;
-                for (int i = 0; i < series.Count; i++)
-                    series[i].BorderDashStyle = style;
-            }
-            else
-                series[(int)numericUpDownNumberLine.Value - 1].BorderDashStyle = comboBoxTypeLine.SelectedIndex == 0 ? ChartDashStyle.Solid : ChartDashStyle.Dash;
+            series[selectedIndex].BorderDashStyle = comboBoxTypeLine.SelectedIndex == 0 ? ChartDashStyle.Solid : ChartDashStyle.Dash;
         }
         //Толщина линии
-        private void numericUpDownBorderWidth_ValueChanged(object sender, System.EventArgs e)
+        private void numericUpDownBorderWidth_ValueChanged(object sender, EventArgs e)
         {
-            //Применить тип линии и толщину ко всем
-            if (checkBoxApplyToAll.Checked)
-            {
-                int width = (int)numericUpDownBorderWidth.Value;
-                for (int i = 0; i < series.Count; i++)
-                    series[i].BorderWidth = width;
-            }
-            else
-                series[(int)numericUpDownNumberLine.Value - 1].BorderWidth = (int)numericUpDownBorderWidth.Value;
+            series[selectedIndex].BorderWidth = (int)numericUpDownBorderWidth.Value;
         }
-        //Применить ко всем
-        private void checkBoxApplyToAll_CheckedChanged(object sender, System.EventArgs e)
+        //Выбор цвета линии
+        private void labelColor_Click(object sender, EventArgs e)
         {
-            numericUpDownNumberLine.Enabled = !checkBoxApplyToAll.Checked;
+            series[selectedIndex].Color = (sender as Label).BackColor;
+            SetColorLineOnForm();
+        }
+        //Персональный цвет
+        private void numericUpDownRGB_ValueChanged(object sender, EventArgs e)
+        {
+            labelCurrentColor.BackColor = Color.FromArgb(
+                    (int)numericUpDownRed.Value,
+                    (int)numericUpDownGreen.Value,
+                    (int)numericUpDownBlue.Value
+                );
+            series[selectedIndex].Color = labelCurrentColor.BackColor;
         }
     }
 }
