@@ -58,16 +58,16 @@ namespace GraphForArticle
             this.buttonOK = new System.Windows.Forms.Button();
             this.labelCurrentColor = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDownRed = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownGreen = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownR = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownG = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
-            this.numericUpDownBlue = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownB = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBorderWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDownNumberLine
@@ -86,7 +86,7 @@ namespace GraphForArticle
             0,
             0,
             0});
-            this.numericUpDownNumberLine.ValueChanged += new System.EventHandler(this.numericUpDownNumberLine_ValueChanged);
+            this.numericUpDownNumberLine.ValueChanged += new System.EventHandler(this.NumericUpDownNumberLine_ValueChanged);
             // 
             // label1
             // 
@@ -117,7 +117,7 @@ namespace GraphForArticle
             this.comboBoxTypeLine.Name = "comboBoxTypeLine";
             this.comboBoxTypeLine.Size = new System.Drawing.Size(118, 28);
             this.comboBoxTypeLine.TabIndex = 6;
-            this.comboBoxTypeLine.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeLine_SelectedIndexChanged);
+            this.comboBoxTypeLine.SelectedIndexChanged += new System.EventHandler(this.ComboBoxTypeLine_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -144,7 +144,7 @@ namespace GraphForArticle
             0,
             0,
             0});
-            this.numericUpDownBorderWidth.ValueChanged += new System.EventHandler(this.numericUpDownBorderWidth_ValueChanged);
+            this.numericUpDownBorderWidth.ValueChanged += new System.EventHandler(this.NumericUpDownBorderWidth_ValueChanged);
             // 
             // label4
             // 
@@ -156,7 +156,7 @@ namespace GraphForArticle
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 30);
             this.label4.TabIndex = 32;
-            this.label4.Click += new System.EventHandler(this.labelColor_Click);
+            this.label4.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label6
             // 
@@ -168,7 +168,7 @@ namespace GraphForArticle
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 30);
             this.label6.TabIndex = 33;
-            this.label6.Click += new System.EventHandler(this.labelColor_Click);
+            this.label6.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label7
             // 
@@ -180,7 +180,7 @@ namespace GraphForArticle
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 30);
             this.label7.TabIndex = 35;
-            this.label7.Click += new System.EventHandler(this.labelColor_Click);
+            this.label7.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label8
             // 
@@ -192,7 +192,7 @@ namespace GraphForArticle
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 30);
             this.label8.TabIndex = 34;
-            this.label8.Click += new System.EventHandler(this.labelColor_Click);
+            this.label8.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label9
             // 
@@ -204,7 +204,7 @@ namespace GraphForArticle
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 30);
             this.label9.TabIndex = 36;
-            this.label9.Click += new System.EventHandler(this.labelColor_Click);
+            this.label9.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label10
             // 
@@ -216,7 +216,7 @@ namespace GraphForArticle
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 30);
             this.label10.TabIndex = 41;
-            this.label10.Click += new System.EventHandler(this.labelColor_Click);
+            this.label10.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label11
             // 
@@ -228,7 +228,7 @@ namespace GraphForArticle
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 30);
             this.label11.TabIndex = 40;
-            this.label11.Click += new System.EventHandler(this.labelColor_Click);
+            this.label11.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label12
             // 
@@ -240,7 +240,7 @@ namespace GraphForArticle
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(30, 30);
             this.label12.TabIndex = 39;
-            this.label12.Click += new System.EventHandler(this.labelColor_Click);
+            this.label12.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label13
             // 
@@ -252,7 +252,7 @@ namespace GraphForArticle
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(30, 30);
             this.label13.TabIndex = 38;
-            this.label13.Click += new System.EventHandler(this.labelColor_Click);
+            this.label13.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label14
             // 
@@ -264,7 +264,7 @@ namespace GraphForArticle
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(30, 30);
             this.label14.TabIndex = 37;
-            this.label14.Click += new System.EventHandler(this.labelColor_Click);
+            this.label14.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label15
             // 
@@ -276,7 +276,7 @@ namespace GraphForArticle
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 30);
             this.label15.TabIndex = 51;
-            this.label15.Click += new System.EventHandler(this.labelColor_Click);
+            this.label15.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label16
             // 
@@ -288,7 +288,7 @@ namespace GraphForArticle
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(30, 30);
             this.label16.TabIndex = 50;
-            this.label16.Click += new System.EventHandler(this.labelColor_Click);
+            this.label16.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label17
             // 
@@ -300,7 +300,7 @@ namespace GraphForArticle
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(30, 30);
             this.label17.TabIndex = 49;
-            this.label17.Click += new System.EventHandler(this.labelColor_Click);
+            this.label17.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label18
             // 
@@ -312,7 +312,7 @@ namespace GraphForArticle
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 30);
             this.label18.TabIndex = 48;
-            this.label18.Click += new System.EventHandler(this.labelColor_Click);
+            this.label18.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label19
             // 
@@ -324,7 +324,7 @@ namespace GraphForArticle
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(30, 30);
             this.label19.TabIndex = 47;
-            this.label19.Click += new System.EventHandler(this.labelColor_Click);
+            this.label19.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label20
             // 
@@ -336,7 +336,7 @@ namespace GraphForArticle
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(30, 30);
             this.label20.TabIndex = 46;
-            this.label20.Click += new System.EventHandler(this.labelColor_Click);
+            this.label20.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label21
             // 
@@ -348,7 +348,7 @@ namespace GraphForArticle
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(30, 30);
             this.label21.TabIndex = 45;
-            this.label21.Click += new System.EventHandler(this.labelColor_Click);
+            this.label21.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label22
             // 
@@ -360,7 +360,7 @@ namespace GraphForArticle
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(30, 30);
             this.label22.TabIndex = 44;
-            this.label22.Click += new System.EventHandler(this.labelColor_Click);
+            this.label22.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label23
             // 
@@ -372,7 +372,7 @@ namespace GraphForArticle
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(30, 30);
             this.label23.TabIndex = 43;
-            this.label23.Click += new System.EventHandler(this.labelColor_Click);
+            this.label23.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // label24
             // 
@@ -384,7 +384,7 @@ namespace GraphForArticle
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(30, 30);
             this.label24.TabIndex = 42;
-            this.label24.Click += new System.EventHandler(this.labelColor_Click);
+            this.label24.Click += new System.EventHandler(this.LabelColor_Click);
             // 
             // buttonOK
             // 
@@ -417,39 +417,39 @@ namespace GraphForArticle
             // 
             // numericUpDownRed
             // 
-            this.numericUpDownRed.Location = new System.Drawing.Point(366, 11);
-            this.numericUpDownRed.Maximum = new decimal(new int[] {
+            this.numericUpDownR.Location = new System.Drawing.Point(366, 11);
+            this.numericUpDownR.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDownRed.Name = "numericUpDownRed";
-            this.numericUpDownRed.Size = new System.Drawing.Size(57, 26);
-            this.numericUpDownRed.TabIndex = 65;
-            this.numericUpDownRed.Value = new decimal(new int[] {
+            this.numericUpDownR.Name = "numericUpDownRed";
+            this.numericUpDownR.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownR.TabIndex = 65;
+            this.numericUpDownR.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDownRed.ValueChanged += new System.EventHandler(this.numericUpDownRGB_ValueChanged);
+            this.numericUpDownR.ValueChanged += new System.EventHandler(this.NumericUpDownRGB_ValueChanged);
             // 
             // numericUpDownGreen
             // 
-            this.numericUpDownGreen.Location = new System.Drawing.Point(366, 43);
-            this.numericUpDownGreen.Maximum = new decimal(new int[] {
+            this.numericUpDownG.Location = new System.Drawing.Point(366, 43);
+            this.numericUpDownG.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDownGreen.Name = "numericUpDownGreen";
-            this.numericUpDownGreen.Size = new System.Drawing.Size(57, 26);
-            this.numericUpDownGreen.TabIndex = 67;
-            this.numericUpDownGreen.Value = new decimal(new int[] {
+            this.numericUpDownG.Name = "numericUpDownGreen";
+            this.numericUpDownG.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownG.TabIndex = 67;
+            this.numericUpDownG.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDownGreen.ValueChanged += new System.EventHandler(this.numericUpDownRGB_ValueChanged);
+            this.numericUpDownG.ValueChanged += new System.EventHandler(this.NumericUpDownRGB_ValueChanged);
             // 
             // label25
             // 
@@ -462,21 +462,21 @@ namespace GraphForArticle
             // 
             // numericUpDownBlue
             // 
-            this.numericUpDownBlue.Location = new System.Drawing.Point(366, 75);
-            this.numericUpDownBlue.Maximum = new decimal(new int[] {
+            this.numericUpDownB.Location = new System.Drawing.Point(366, 75);
+            this.numericUpDownB.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDownBlue.Name = "numericUpDownBlue";
-            this.numericUpDownBlue.Size = new System.Drawing.Size(57, 26);
-            this.numericUpDownBlue.TabIndex = 69;
-            this.numericUpDownBlue.Value = new decimal(new int[] {
+            this.numericUpDownB.Name = "numericUpDownBlue";
+            this.numericUpDownB.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownB.TabIndex = 69;
+            this.numericUpDownB.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDownBlue.ValueChanged += new System.EventHandler(this.numericUpDownRGB_ValueChanged);
+            this.numericUpDownB.ValueChanged += new System.EventHandler(this.NumericUpDownRGB_ValueChanged);
             // 
             // label26
             // 
@@ -494,11 +494,11 @@ namespace GraphForArticle
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonOK;
             this.ClientSize = new System.Drawing.Size(438, 230);
-            this.Controls.Add(this.numericUpDownBlue);
+            this.Controls.Add(this.numericUpDownB);
             this.Controls.Add(this.label26);
-            this.Controls.Add(this.numericUpDownGreen);
+            this.Controls.Add(this.numericUpDownG);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.numericUpDownRed);
+            this.Controls.Add(this.numericUpDownR);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelCurrentColor);
             this.Controls.Add(this.buttonOK);
@@ -539,9 +539,9 @@ namespace GraphForArticle
             this.Text = "Настройки линии";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBorderWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,10 +577,10 @@ namespace GraphForArticle
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Label labelCurrentColor;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDownRed;
-        private System.Windows.Forms.NumericUpDown numericUpDownGreen;
+        private System.Windows.Forms.NumericUpDown numericUpDownR;
+        private System.Windows.Forms.NumericUpDown numericUpDownG;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.NumericUpDown numericUpDownBlue;
+        private System.Windows.Forms.NumericUpDown numericUpDownB;
         private System.Windows.Forms.Label label26;
     }
 }

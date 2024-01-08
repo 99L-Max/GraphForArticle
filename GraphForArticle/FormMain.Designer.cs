@@ -43,14 +43,14 @@ namespace GraphForArticle
             this.buttonLineSettings = new System.Windows.Forms.Button();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.groupBoxAxis = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxOY = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDownYMin = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownYMax = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownYInterval = new System.Windows.Forms.NumericUpDown();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxOX = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDownXInterval = new System.Windows.Forms.NumericUpDown();
@@ -65,11 +65,11 @@ namespace GraphForArticle
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             this.groupBoxAxis.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxOY.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYInterval)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxOX.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMax)).BeginInit();
@@ -92,7 +92,7 @@ namespace GraphForArticle
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.OnButtonSaveClick);
             // 
             // label8
             // 
@@ -183,7 +183,7 @@ namespace GraphForArticle
             this.buttonLineSettings.Text = "Настройки линий";
             this.buttonLineSettings.UseVisualStyleBackColor = false;
             this.buttonLineSettings.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonLineSettings.Click += new System.EventHandler(this.ButtonLineSettings_Click);
+            this.buttonLineSettings.Click += new System.EventHandler(this.OnButtonLineSettingsClick);
             // 
             // comboBoxSize
             // 
@@ -221,21 +221,21 @@ namespace GraphForArticle
             this.groupBoxAxis.TabStop = false;
             this.groupBoxAxis.Text = "Подписи";
             // 
-            // groupBox3
+            // groupBoxOy
             // 
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.numericUpDownYMin);
-            this.groupBox3.Controls.Add(this.numericUpDownYMax);
-            this.groupBox3.Controls.Add(this.numericUpDownYInterval);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(10, 180);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(170, 122);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ось Oy";
+            this.groupBoxOY.Controls.Add(this.label11);
+            this.groupBoxOY.Controls.Add(this.label12);
+            this.groupBoxOY.Controls.Add(this.label13);
+            this.groupBoxOY.Controls.Add(this.numericUpDownYMin);
+            this.groupBoxOY.Controls.Add(this.numericUpDownYMax);
+            this.groupBoxOY.Controls.Add(this.numericUpDownYInterval);
+            this.groupBoxOY.ForeColor = System.Drawing.Color.White;
+            this.groupBoxOY.Location = new System.Drawing.Point(10, 180);
+            this.groupBoxOY.Name = "groupBoxOy";
+            this.groupBoxOY.Size = new System.Drawing.Size(170, 122);
+            this.groupBoxOY.TabIndex = 22;
+            this.groupBoxOY.TabStop = false;
+            this.groupBoxOY.Text = "Ось Oy";
             // 
             // label11
             // 
@@ -306,21 +306,21 @@ namespace GraphForArticle
             this.numericUpDownYInterval.TabIndex = 14;
             this.numericUpDownYInterval.ValueChanged += new System.EventHandler(this.NumericUpDownYInterval_ValueChanged);
             // 
-            // groupBox2
+            // groupBoxOx
             // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.numericUpDownXInterval);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.numericUpDownXMin);
-            this.groupBox2.Controls.Add(this.numericUpDownXMax);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(10, 52);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(170, 122);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ось Ox";
+            this.groupBoxOX.Controls.Add(this.label3);
+            this.groupBoxOX.Controls.Add(this.label2);
+            this.groupBoxOX.Controls.Add(this.numericUpDownXInterval);
+            this.groupBoxOX.Controls.Add(this.label1);
+            this.groupBoxOX.Controls.Add(this.numericUpDownXMin);
+            this.groupBoxOX.Controls.Add(this.numericUpDownXMax);
+            this.groupBoxOX.ForeColor = System.Drawing.Color.White;
+            this.groupBoxOX.Location = new System.Drawing.Point(10, 52);
+            this.groupBoxOX.Name = "groupBoxOx";
+            this.groupBoxOX.Size = new System.Drawing.Size(170, 122);
+            this.groupBoxOX.TabIndex = 21;
+            this.groupBoxOX.TabStop = false;
+            this.groupBoxOX.Text = "Ось Ox";
             // 
             // label3
             // 
@@ -423,8 +423,8 @@ namespace GraphForArticle
             this.groupBoxNumerics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxNumerics.Controls.Add(this.label5);
             this.groupBoxNumerics.Controls.Add(this.numericUpDownDecimalPlaces);
-            this.groupBoxNumerics.Controls.Add(this.groupBox2);
-            this.groupBoxNumerics.Controls.Add(this.groupBox3);
+            this.groupBoxNumerics.Controls.Add(this.groupBoxOX);
+            this.groupBoxNumerics.Controls.Add(this.groupBoxOY);
             this.groupBoxNumerics.ForeColor = System.Drawing.Color.White;
             this.groupBoxNumerics.Location = new System.Drawing.Point(787, 12);
             this.groupBoxNumerics.Name = "groupBoxNumerics";
@@ -458,7 +458,7 @@ namespace GraphForArticle
             this.buttonOpen.Text = "Открыть";
             this.buttonOpen.UseVisualStyleBackColor = false;
             this.buttonOpen.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
+            this.buttonOpen.Click += new System.EventHandler(this.OnButtonOpenClick);
             // 
             // chart
             // 
@@ -514,13 +514,13 @@ namespace GraphForArticle
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             this.groupBoxAxis.ResumeLayout(false);
             this.groupBoxAxis.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxOY.ResumeLayout(false);
+            this.groupBoxOY.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYInterval)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxOX.ResumeLayout(false);
+            this.groupBoxOX.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXInterval)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMax)).EndInit();
@@ -545,14 +545,14 @@ namespace GraphForArticle
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxNameX;
         private System.Windows.Forms.GroupBox groupBoxAxis;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxOY;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDownYMin;
         private System.Windows.Forms.NumericUpDown numericUpDownYMax;
         private System.Windows.Forms.NumericUpDown numericUpDownYInterval;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxOX;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDownXInterval;
