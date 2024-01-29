@@ -221,7 +221,7 @@ namespace GraphForArticle
             this.groupBoxAxis.TabStop = false;
             this.groupBoxAxis.Text = "Подписи";
             // 
-            // groupBoxOy
+            // groupBoxOY
             // 
             this.groupBoxOY.Controls.Add(this.label11);
             this.groupBoxOY.Controls.Add(this.label12);
@@ -231,7 +231,7 @@ namespace GraphForArticle
             this.groupBoxOY.Controls.Add(this.numericUpDownYInterval);
             this.groupBoxOY.ForeColor = System.Drawing.Color.White;
             this.groupBoxOY.Location = new System.Drawing.Point(10, 180);
-            this.groupBoxOY.Name = "groupBoxOy";
+            this.groupBoxOY.Name = "groupBoxOY";
             this.groupBoxOY.Size = new System.Drawing.Size(170, 122);
             this.groupBoxOY.TabIndex = 22;
             this.groupBoxOY.TabStop = false;
@@ -268,10 +268,15 @@ namespace GraphForArticle
             // 
             this.numericUpDownYMin.Location = new System.Drawing.Point(60, 24);
             this.numericUpDownYMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownYMin.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.numericUpDownYMin.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
+            -1,
+            -1,
+            -1,
             -2147483648});
             this.numericUpDownYMin.Name = "numericUpDownYMin";
             this.numericUpDownYMin.Size = new System.Drawing.Size(92, 26);
@@ -282,10 +287,15 @@ namespace GraphForArticle
             // 
             this.numericUpDownYMax.Location = new System.Drawing.Point(60, 54);
             this.numericUpDownYMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownYMax.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.numericUpDownYMax.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
+            -1,
+            -1,
+            -1,
             -2147483648});
             this.numericUpDownYMax.Name = "numericUpDownYMax";
             this.numericUpDownYMax.Size = new System.Drawing.Size(92, 26);
@@ -296,17 +306,23 @@ namespace GraphForArticle
             // 
             this.numericUpDownYInterval.Location = new System.Drawing.Point(60, 86);
             this.numericUpDownYInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownYInterval.Maximum = decimal.MaxValue;
             this.numericUpDownYInterval.Minimum = new decimal(new int[] {
-            100,
+            1,
             0,
             0,
-            -2147483648});
+            131072});
             this.numericUpDownYInterval.Name = "numericUpDownYInterval";
             this.numericUpDownYInterval.Size = new System.Drawing.Size(92, 26);
             this.numericUpDownYInterval.TabIndex = 14;
+            this.numericUpDownYInterval.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numericUpDownYInterval.ValueChanged += new System.EventHandler(this.NumericUpDownYInterval_ValueChanged);
             // 
-            // groupBoxOx
+            // groupBoxOX
             // 
             this.groupBoxOX.Controls.Add(this.label3);
             this.groupBoxOX.Controls.Add(this.label2);
@@ -316,7 +332,7 @@ namespace GraphForArticle
             this.groupBoxOX.Controls.Add(this.numericUpDownXMax);
             this.groupBoxOX.ForeColor = System.Drawing.Color.White;
             this.groupBoxOX.Location = new System.Drawing.Point(10, 52);
-            this.groupBoxOX.Name = "groupBoxOx";
+            this.groupBoxOX.Name = "groupBoxOX";
             this.groupBoxOX.Size = new System.Drawing.Size(170, 122);
             this.groupBoxOX.TabIndex = 21;
             this.groupBoxOX.TabStop = false;
@@ -344,14 +360,24 @@ namespace GraphForArticle
             // 
             this.numericUpDownXInterval.Location = new System.Drawing.Point(62, 84);
             this.numericUpDownXInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownXInterval.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.numericUpDownXInterval.Minimum = new decimal(new int[] {
-            100,
+            1,
             0,
             0,
-            -2147483648});
+            131072});
             this.numericUpDownXInterval.Name = "numericUpDownXInterval";
             this.numericUpDownXInterval.Size = new System.Drawing.Size(92, 26);
             this.numericUpDownXInterval.TabIndex = 11;
+            this.numericUpDownXInterval.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numericUpDownXInterval.ValueChanged += new System.EventHandler(this.NumericUpDownXInterval_ValueChanged);
             // 
             // label1
@@ -367,10 +393,15 @@ namespace GraphForArticle
             // 
             this.numericUpDownXMin.Location = new System.Drawing.Point(62, 24);
             this.numericUpDownXMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownXMin.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.numericUpDownXMin.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
+            -1,
+            -1,
+            -1,
             -2147483648});
             this.numericUpDownXMin.Name = "numericUpDownXMin";
             this.numericUpDownXMin.Size = new System.Drawing.Size(92, 26);
@@ -381,10 +412,15 @@ namespace GraphForArticle
             // 
             this.numericUpDownXMax.Location = new System.Drawing.Point(62, 54);
             this.numericUpDownXMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDownXMax.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.numericUpDownXMax.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
+            -1,
+            -1,
+            -1,
             -2147483648});
             this.numericUpDownXMax.Name = "numericUpDownXMax";
             this.numericUpDownXMax.Size = new System.Drawing.Size(92, 26);
