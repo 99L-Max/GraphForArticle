@@ -10,213 +10,222 @@ namespace GraphForArticle
 {
     partial class FormMain : Form
     {
-        private static readonly Color[] colors = {
-            Color.Red, Color.Green, Color.Blue,
-            Color.Orange, Color.Purple, Color.Black,
-            Color.Maroon, Color.DarkGreen, Color.Cyan,
-            Color.Gold, Color.Indigo, Color.DimGray
-        };
+        private Font _fontLabel;
+        private Font _fontTitle;
+
+        private static readonly Color[] s_colors;
+
+        static FormMain()
+        {
+            s_colors = new Color[] {
+                Color.Red, Color.Green, Color.Blue,
+                Color.Orange, Color.Purple, Color.Black,
+                Color.Maroon, Color.DarkGreen, Color.Cyan,
+                Color.Gold, Color.Indigo, Color.DimGray
+            };
+        }
 
         public FormMain()
         {
             InitializeComponent();
-            buttonSave.Enabled = buttonLineSettings.Enabled = false;
+
+            _fontLabel = _chart.ChartAreas[0].AxisX.LabelStyle.Font;
+            _fontTitle = _chart.ChartAreas[0].AxisX.TitleFont;
+
+            _btnSave.Enabled = _btnLineSettings.Enabled = false;
         }
 
-        private void FormChart_Load(object sender, EventArgs e)
+        private void OnFormLoad(object sender, EventArgs e)
         {
-            comboBoxSize.SelectedIndex = 0;
-            comboBoxSize.SelectedIndexChanged += ComboBoxSize_SelectedIndexChanged;
-            NumericUpDownDecimalPlaces_ValueChanged(null, null);
+            _cmbSize.SelectedIndex = 0;
+            _cmbSize.SelectedIndexChanged += OnSizeChanged;
+
+            OnDecimalPlacesChanged(null, null);
         }
 
         private void OnButtonLineSettingsClick(object sender, EventArgs e)
         {
-            if (chart.Series.Count > 0)
-                (new FormSettingsLine(chart.Series)).ShowDialog();
+            if (_chart.Series.Count > 0)
+                (new FormSettingsLine(_chart.Series)).ShowDialog();
         }
 
         private void OnButtonOpenClick(object sender, EventArgs e)
         {
-            OpenFileDialog OFDialog = new OpenFileDialog
+            using (OpenFileDialog ofDialog = new OpenFileDialog())
             {
-                Filter = "Текстовые файлы|*.txt|Все файлы|*.*"
-            };
+                ofDialog.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
 
-            DialogResult dr = OFDialog.ShowDialog();
+                if (ofDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
-            if (dr != DialogResult.OK) return;
+                _chart.Series.Clear();
 
-            chart.Series.Clear();
-
-            try
-            {
-                double xMin = double.MaxValue;
-                double xMax = double.MinValue;
-                double yMin = double.MaxValue;
-                double yMax = double.MinValue;
-
-                string data = File.ReadAllText(OFDialog.FileName);
-
-                //Подгонка под формат
-                data = data.Trim('\n');
-                data = data.Replace('\t', ' ');
-                data = data.Replace('.', ',');
-                data = Regex.Replace(data, @"([ ]){2,}", @"$1");
-
-                string[] lines = data.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-
-                if (lines.Length < 2)
-                    throw new Exception("Недостаточно данных. Необходимо минимум по две точки для каждого графика.");
-
-                int countSeries = lines[0].Count(c => c == ' ');
-
-                if (countSeries == 0)
-                    throw new Exception("Недостаточно данных. Необходимо минимум два столбца: x и y.");
-
-                for (int i = 0; i < countSeries; i++)
+                try
                 {
-                    Series series = new Series
+                    double xMin = double.MaxValue;
+                    double xMax = double.MinValue;
+                    double yMin = double.MaxValue;
+                    double yMax = double.MinValue;
+
+                    string data = File.ReadAllText(ofDialog.FileName);
+
+                    //Подгонка под формат
+                    data = data.Trim('\n');
+                    data = data.Replace('\t', ' ');
+                    data = data.Replace('.', ',');
+                    data = Regex.Replace(data, @"([ ]){2,}", @"$1");
+
+                    string[] lines = data.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+
+                    if (lines.Length < 2)
+                        throw new Exception("Недостаточно данных. Необходимо минимум по две точки для каждого графика.");
+
+                    int countSeries = lines[0].Count(c => c == ' ');
+
+                    if (countSeries == 0)
+                        throw new Exception("Недостаточно данных. Необходимо минимум два столбца: x и y.");
+
+                    for (int i = 0; i < countSeries; i++)
                     {
-                        BorderWidth = 3,//По умолчанию
-                        ChartType = SeriesChartType.Spline,//По умолчанию
-                        Color = colors[i % colors.Length]
-                    };
-                    chart.Series.Add(series);
-                }
+                        Series series = new Series
+                        {
+                            BorderWidth = 3,//По умолчанию
+                            ChartType = SeriesChartType.Spline,//По умолчанию
+                            Color = s_colors[i % s_colors.Length]
+                        };
 
-                double[] points;
-
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    points = lines[i].Split(' ').Select(x => Convert.ToDouble(x)).ToArray();
-
-                    if (xMin > points[0]) xMin = points[0];
-                    if (xMax < points[0]) xMax = points[0];
-
-                    for (int j = 1; j < points.Length; j++)
-                    {
-                        chart.Series[j - 1].Points.AddXY(points[0], points[j]);
-
-                        if (yMin > points[j]) yMin = points[j];
-                        if (yMax < points[j]) yMax = points[j];
+                        _chart.Series.Add(series);
                     }
+
+                    double[] points;
+
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        points = lines[i].Split(' ').Select(x => Convert.ToDouble(x)).ToArray();
+
+                        if (xMin > points[0]) xMin = points[0];
+                        if (xMax < points[0]) xMax = points[0];
+
+                        for (int j = 1; j < points.Length; j++)
+                        {
+                            _chart.Series[j - 1].Points.AddXY(points[0], points[j]);
+
+                            if (yMin > points[j]) yMin = points[j];
+                            if (yMax < points[j]) yMax = points[j];
+                        }
+                    }
+
+                    _numXMin.Value = (decimal)xMin;
+                    _numXMax.Value = (decimal)xMax;
+                    _numYMin.Value = (decimal)Math.Floor(yMin);
+                    _numYMax.Value = (decimal)Math.Ceiling(yMax);
+
+                    //По умолчанию на 5 отрезков делим
+                    _numXInterval.Value = (_numXMax.Value - _numXMin.Value) / 5m;
+                    _numYInterval.Value = (_numYMax.Value - _numYMin.Value) / 5m;
+
+                    _btnSave.Enabled = _btnLineSettings.Enabled = true;
                 }
+                catch (Exception exc)
+                {
+                    _chart.Series.Clear();
+                    _btnSave.Enabled = _btnLineSettings.Enabled = false;
 
-                numericUpDownXMin.Value = (decimal)xMin;
-                numericUpDownXMax.Value = (decimal)xMax;
-                numericUpDownYMin.Value = (decimal)Math.Floor(yMin);
-                numericUpDownYMax.Value = (decimal)Math.Ceiling(yMax);
-
-                //По умолчанию на 5 отрезков делим
-                numericUpDownXInterval.Value = (numericUpDownXMax.Value - numericUpDownXMin.Value) / 5m;
-                numericUpDownYInterval.Value = (numericUpDownYMax.Value - numericUpDownYMin.Value) / 5m;
-
-                SetFontAxis(null, null);
-
-                buttonSave.Enabled = buttonLineSettings.Enabled = true;
-            }
-            catch (Exception exc)
-            {
-                chart.Series.Clear();
-                buttonSave.Enabled = buttonLineSettings.Enabled = false;
-                MessageBox.Show(exc.Message + Environment.NewLine + Properties.Resources.ErrorMessage, "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(exc.Message + Environment.NewLine + Properties.Resources.ErrorMessage, "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void OnButtonSaveClick(object sender, EventArgs e)
         {
-            SaveFileDialog SVDialog = new SaveFileDialog
+            using (SaveFileDialog svDialog = new SaveFileDialog())
             {
-                Filter = "Изображения|*.png"
-            };
+                svDialog.Filter = "Изображения|*.png";
 
-            DialogResult dr = SVDialog.ShowDialog();
+                if (svDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
-            if (dr != DialogResult.OK) return;
-
-            chart.SaveImage(SVDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                _chart.SaveImage(svDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+            }
         }
 
-        private void ComboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnSizeChanged(object sender, EventArgs e)
         {
-            int[] size = comboBoxSize.SelectedItem.ToString().Split(':').Select(x => Convert.ToInt32(x)).ToArray();
-            chart.Height = chart.Width * size[1] / size[0];
+            int[] size = _cmbSize.SelectedItem.ToString().Split(':').Select(x => Convert.ToInt32(x)).ToArray();
+            _chart.Height = _chart.Width * size[1] / size[0];
         }
 
-        private void NumericUpDownDecimalPlaces_ValueChanged(object sender, EventArgs e)
+        private void OnDecimalPlacesChanged(object sender, EventArgs e)
         {
-            int decimalPlaces = (int)numericUpDownDecimalPlaces.Value;
-            decimal increment = (decimal)Math.Pow(10, -(int)numericUpDownDecimalPlaces.Value);
+            var decimalPlaces = (int)_numDecimalPlaces.Value;
+            var increment = (decimal)Math.Pow(10, -(int)_numDecimalPlaces.Value);
+            var numericUpDowns = new NumericUpDown[] { _numXMin, _numYMin, _numXMax, _numYMax, _numXInterval, _numYInterval };
 
-            var numerics = groupBoxOX.Controls.OfType<NumericUpDown>().Concat(groupBoxOY.Controls.OfType<NumericUpDown>()).ToList();
-
-            foreach (var ctrl in numerics)
+            foreach (var ctrl in numericUpDowns)
             {
                 ctrl.DecimalPlaces = decimalPlaces;
                 ctrl.Increment = increment;
             }
         }
 
-        //Min(x)
-        private void NumericUpDownXMin_ValueChanged(object sender, EventArgs e)
+        private void OnXMinChanged(object sender, EventArgs e)
         {
-            numericUpDownXMax.Minimum = numericUpDownXMin.Value;
-            chart.ChartAreas[0].AxisX.Minimum = (double)numericUpDownXMin.Value;
+            _numXMax.Minimum = _numXMin.Value;
+            _chart.ChartAreas[0].AxisX.Minimum = (double)_numXMin.Value;
         }
 
-        //Max(x)
-        private void NumericUpDownXMax_ValueChanged(object sender, EventArgs e)
+        private void OnXMaxChanged(object sender, EventArgs e)
         {
-            numericUpDownXMin.Maximum = numericUpDownXMax.Value;
-            chart.ChartAreas[0].AxisX.Maximum = (double)numericUpDownXMax.Value;
+            _numXMin.Maximum = _numXMax.Value;
+            _chart.ChartAreas[0].AxisX.Maximum = (double)_numXMax.Value;
         }
 
-        //Min(y)
-        private void NumericUpDownYMin_ValueChanged(object sender, EventArgs e)
+        private void OnYMinChanged(object sender, EventArgs e)
         {
-            numericUpDownYMax.Minimum = numericUpDownYMin.Value;
-            chart.ChartAreas[0].AxisY.Minimum = (double)numericUpDownYMin.Value;
+            _numYMax.Minimum = _numYMin.Value;
+            _chart.ChartAreas[0].AxisY.Minimum = (double)_numYMin.Value;
         }
 
-        //Max(y)
-        private void NumericUpDownYMax_ValueChanged(object sender, EventArgs e)
+        private void OnYMaxChanged(object sender, EventArgs e)
         {
-            numericUpDownYMin.Maximum = numericUpDownYMax.Value;
-            chart.ChartAreas[0].AxisY.Maximum = (double)numericUpDownYMax.Value;
+            _numYMin.Maximum = _numYMax.Value;
+            _chart.ChartAreas[0].AxisY.Maximum = (double)_numYMax.Value;
         }
 
-        //Шаг x
-        private void NumericUpDownXInterval_ValueChanged(object sender, EventArgs e)
-        {
-            chart.ChartAreas[0].AxisX.Interval = (double)numericUpDownXInterval.Value;
-        }
+        private void OnXIntervalChanged(object sender, EventArgs e) =>
+            _chart.ChartAreas[0].AxisX.Interval = (double)_numXInterval.Value;
 
-        //Шаг y
-        private void NumericUpDownYInterval_ValueChanged(object sender, EventArgs e)
-        {
-            chart.ChartAreas[0].AxisY.Interval = (double)numericUpDownYInterval.Value;
-        }
+        private void OnYIntervalChanged(object sender, EventArgs e) =>
+            _chart.ChartAreas[0].AxisY.Interval = (double)_numYInterval.Value;
+
+        private void OnAxisYTextChanged(object sender, EventArgs e) =>
+            _chart.ChartAreas[0].AxisY.Title = _txtNameY.Text;
+
+        private void OnAxisXTextChanged(object sender, EventArgs e) =>
+            _chart.ChartAreas[0].AxisX.Title = _txtNameX.Text;
 
         private void SetFontAxis(object sender, EventArgs e)
         {
-            Font fontLabel = new Font("System", (int)numericUpDownFontSize.Value);
-            Font fontTitle = new Font("System", (int)numericUpDownFontSize.Value, checkBoxItalics.Checked ? FontStyle.Italic : FontStyle.Regular);
+            Font fontLabel = new Font("", (int)_numFontSize.Value);
+            Font fontTitle = new Font("", (int)_numFontSize.Value, _chbItalics.Checked ? FontStyle.Italic : FontStyle.Regular);
 
-            chart.ChartAreas[0].AxisX.Title = textBoxNameX.Text;
-            chart.ChartAreas[0].AxisY.Title = textBoxNameY.Text;
+            _chart.ChartAreas[0].AxisX.LabelStyle.Font = fontLabel;
+            _chart.ChartAreas[0].AxisY.LabelStyle.Font = fontLabel;
 
-            chart.ChartAreas[0].AxisX.LabelStyle.Font = fontLabel;
-            chart.ChartAreas[0].AxisY.LabelStyle.Font = fontLabel;
+            _chart.ChartAreas[0].AxisX.TitleFont = fontTitle;
+            _chart.ChartAreas[0].AxisY.TitleFont = fontTitle;
 
-            chart.ChartAreas[0].AxisX.TitleFont = fontTitle;
-            chart.ChartAreas[0].AxisY.TitleFont = fontTitle;
+            _fontLabel.Dispose();
+            _fontTitle.Dispose();
+
+            _fontLabel = fontLabel;
+            _fontTitle = fontTitle;
         }
 
-        private void Button_EnabledChanged(object sender, EventArgs e)
+        private void OnButtonEnabledChanged(object sender, EventArgs e)
         {
-            Button button = (sender as Button);
-            button.BackColor = button.Enabled ? Color.White : Color.Gray;
+            if (sender is Button btn)
+                btn.BackColor = btn.Enabled ? Color.White : Color.Gray;
         }
     }
 }

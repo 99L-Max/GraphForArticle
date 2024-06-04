@@ -7,69 +7,65 @@ namespace GraphForArticle
 {
     partial class FormSettingsLine : Form
     {
-        private readonly SeriesCollection series;
-        private readonly NumericUpDown[] numericsRGB;
+        private readonly SeriesCollection _series;
 
-        private int selectedIndex = 0;
+        private int _selectedIndex = 0;
+        private bool _isUserChangeValue = true;
 
         public FormSettingsLine(SeriesCollection series)
         {
             InitializeComponent();
 
-            numericsRGB = new NumericUpDown[] { numericUpDownR, numericUpDownG, numericUpDownB };
+            _series = series;
+            _numNumberLine.Maximum = _series.Count;
 
-            this.series = series;
-
-            numericUpDownNumberLine.Maximum = this.series.Count;
-
-            NumericUpDownNumberLine_ValueChanged(null, null);
+            OnLineChanged(_numNumberLine, EventArgs.Empty);
         }
 
         private void SetColorLineOnForm()
         {
-            labelCurrentColor.BackColor = series[selectedIndex].Color;
+            _lblCurrentColor.BackColor = _series[_selectedIndex].Color;
 
-            foreach (var el in numericsRGB)
-                el.ValueChanged -= NumericUpDownRGB_ValueChanged;
+            _isUserChangeValue = false;
 
-            numericUpDownR.Value = labelCurrentColor.BackColor.R;
-            numericUpDownG.Value = labelCurrentColor.BackColor.G;
-            numericUpDownB.Value = labelCurrentColor.BackColor.B;
+            _numR.Value = _lblCurrentColor.BackColor.R;
+            _numG.Value = _lblCurrentColor.BackColor.G;
+            _numB.Value = _lblCurrentColor.BackColor.B;
 
-            foreach (var el in numericsRGB)
-                el.ValueChanged += NumericUpDownRGB_ValueChanged;
+            _isUserChangeValue = true;
         }
 
-        private void NumericUpDownNumberLine_ValueChanged(object sender, EventArgs e)
+        private void OnLineChanged(object sender, EventArgs e)
         {
-            selectedIndex = (int)numericUpDownNumberLine.Value - 1;
-
-            numericUpDownBorderWidth.Value = series[selectedIndex].BorderWidth;
-            comboBoxTypeLine.SelectedIndex = series[selectedIndex].BorderDashStyle == ChartDashStyle.Solid ? 0 : 1;
+            _selectedIndex = (int)_numNumberLine.Value - 1;
+            _numBorderWidth.Value = _series[_selectedIndex].BorderWidth;
+            _cmbTypeLine.SelectedIndex = Convert.ToInt32(_series[_selectedIndex].BorderDashStyle != ChartDashStyle.Solid);
 
             SetColorLineOnForm();
         }
 
-        private void ComboBoxTypeLine_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnTypeLineChanged(object sender, EventArgs e) =>
+            _series[_selectedIndex].BorderDashStyle = _cmbTypeLine.SelectedIndex == 0 ? ChartDashStyle.Solid : ChartDashStyle.Dash;
+
+        private void OnBorderWidthChanged(object sender, EventArgs e) =>
+            _series[_selectedIndex].BorderWidth = (int)_numBorderWidth.Value;
+
+        private void OnColorClick(object sender, EventArgs e)
         {
-            series[selectedIndex].BorderDashStyle = comboBoxTypeLine.SelectedIndex == 0 ? ChartDashStyle.Solid : ChartDashStyle.Dash;
+            if (sender is Label label)
+            {
+                _series[_selectedIndex].Color = label.BackColor;
+                SetColorLineOnForm();
+            }
         }
 
-        private void NumericUpDownBorderWidth_ValueChanged(object sender, EventArgs e)
+        private void OnRGBChanged(object sender, EventArgs e)
         {
-            series[selectedIndex].BorderWidth = (int)numericUpDownBorderWidth.Value;
-        }
-
-        private void LabelColor_Click(object sender, EventArgs e)
-        {
-            series[selectedIndex].Color = (sender as Label).BackColor;
-            SetColorLineOnForm();
-        }
-
-        private void NumericUpDownRGB_ValueChanged(object sender, EventArgs e)
-        {
-            labelCurrentColor.BackColor = Color.FromArgb((int)numericUpDownR.Value, (int)numericUpDownG.Value, (int)numericUpDownB.Value);
-            series[selectedIndex].Color = labelCurrentColor.BackColor;
+            if (_isUserChangeValue)
+            {
+                _lblCurrentColor.BackColor = Color.FromArgb((int)_numR.Value, (int)_numG.Value, (int)_numB.Value);
+                _series[_selectedIndex].Color = _lblCurrentColor.BackColor;
+            }
         }
     }
 }

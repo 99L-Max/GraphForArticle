@@ -32,473 +32,477 @@ namespace GraphForArticle
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxItalics = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxNameY = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxNameX = new System.Windows.Forms.TextBox();
-            this.buttonLineSettings = new System.Windows.Forms.Button();
-            this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.groupBoxAxis = new System.Windows.Forms.GroupBox();
-            this.groupBoxOY = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDownYMin = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownYMax = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownYInterval = new System.Windows.Forms.NumericUpDown();
-            this.groupBoxOX = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDownXInterval = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDownXMin = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownXMax = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownDecimalPlaces = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBoxNumerics = new System.Windows.Forms.GroupBox();
-            this.groupBoxOther = new System.Windows.Forms.GroupBox();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
-            this.groupBoxAxis.SuspendLayout();
-            this.groupBoxOY.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYInterval)).BeginInit();
-            this.groupBoxOX.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXInterval)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDecimalPlaces)).BeginInit();
-            this.groupBoxNumerics.SuspendLayout();
-            this.groupBoxOther.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            this._btnSave = new System.Windows.Forms.Button();
+            this._lbl8 = new System.Windows.Forms.Label();
+            this._numFontSize = new System.Windows.Forms.NumericUpDown();
+            this._chbItalics = new System.Windows.Forms.CheckBox();
+            this._lbl10 = new System.Windows.Forms.Label();
+            this._txtNameY = new System.Windows.Forms.TextBox();
+            this._lbl9 = new System.Windows.Forms.Label();
+            this._txtNameX = new System.Windows.Forms.TextBox();
+            this._btnLineSettings = new System.Windows.Forms.Button();
+            this._cmbSize = new System.Windows.Forms.ComboBox();
+            this._grbAxis = new System.Windows.Forms.GroupBox();
+            this._grbOY = new System.Windows.Forms.GroupBox();
+            this._lbl11 = new System.Windows.Forms.Label();
+            this._lbl12 = new System.Windows.Forms.Label();
+            this._lbl13 = new System.Windows.Forms.Label();
+            this._numYMin = new System.Windows.Forms.NumericUpDown();
+            this._numYMax = new System.Windows.Forms.NumericUpDown();
+            this._numYInterval = new System.Windows.Forms.NumericUpDown();
+            this._grbOX = new System.Windows.Forms.GroupBox();
+            this._lbl3 = new System.Windows.Forms.Label();
+            this._lbl2 = new System.Windows.Forms.Label();
+            this._numXInterval = new System.Windows.Forms.NumericUpDown();
+            this._lbl1 = new System.Windows.Forms.Label();
+            this._numXMin = new System.Windows.Forms.NumericUpDown();
+            this._numXMax = new System.Windows.Forms.NumericUpDown();
+            this._numDecimalPlaces = new System.Windows.Forms.NumericUpDown();
+            this._lbl5 = new System.Windows.Forms.Label();
+            this._grbNum = new System.Windows.Forms.GroupBox();
+            this._grbOther = new System.Windows.Forms.GroupBox();
+            this._btnOpen = new System.Windows.Forms.Button();
+            this._chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this._numFontSize)).BeginInit();
+            this._grbAxis.SuspendLayout();
+            this._grbOY.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numYMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numYMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numYInterval)).BeginInit();
+            this._grbOX.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numXInterval)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numXMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numXMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numDecimalPlaces)).BeginInit();
+            this._grbNum.SuspendLayout();
+            this._grbOther.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._chart)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonSave
+            // _btnSave
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.BackColor = System.Drawing.Color.White;
-            this.buttonSave.ForeColor = System.Drawing.Color.Black;
-            this.buttonSave.Location = new System.Drawing.Point(787, 815);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(192, 44);
-            this.buttonSave.TabIndex = 2;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonSave.Click += new System.EventHandler(this.OnButtonSaveClick);
+            this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnSave.BackColor = System.Drawing.Color.White;
+            this._btnSave.ForeColor = System.Drawing.Color.Black;
+            this._btnSave.Location = new System.Drawing.Point(787, 815);
+            this._btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._btnSave.Name = "_btnSave";
+            this._btnSave.Size = new System.Drawing.Size(192, 44);
+            this._btnSave.TabIndex = 2;
+            this._btnSave.Text = "Сохранить";
+            this._btnSave.UseVisualStyleBackColor = false;
+            this._btnSave.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this._btnSave.Click += new System.EventHandler(this.OnButtonSaveClick);
             // 
-            // label8
+            // _lbl8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Шрифт";
+            this._lbl8.AutoSize = true;
+            this._lbl8.Location = new System.Drawing.Point(21, 38);
+            this._lbl8.Name = "_lbl8";
+            this._lbl8.Size = new System.Drawing.Size(64, 20);
+            this._lbl8.TabIndex = 15;
+            this._lbl8.Text = "Шрифт";
             // 
-            // numericUpDownFontSize
+            // _numFontSize
             // 
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(86, 36);
-            this.numericUpDownFontSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownFontSize.Minimum = new decimal(new int[] {
+            this._numFontSize.Location = new System.Drawing.Point(86, 36);
+            this._numFontSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numFontSize.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(78, 26);
-            this.numericUpDownFontSize.TabIndex = 17;
-            this.numericUpDownFontSize.Value = new decimal(new int[] {
+            this._numFontSize.Name = "_numFontSize";
+            this._numFontSize.Size = new System.Drawing.Size(78, 26);
+            this._numFontSize.TabIndex = 17;
+            this._numFontSize.Value = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.numericUpDownFontSize.ValueChanged += new System.EventHandler(this.SetFontAxis);
+            this._numFontSize.ValueChanged += new System.EventHandler(this.SetFontAxis);
             // 
-            // checkBoxItalics
+            // _chbItalics
             // 
-            this.checkBoxItalics.AutoSize = true;
-            this.checkBoxItalics.Location = new System.Drawing.Point(83, 138);
-            this.checkBoxItalics.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkBoxItalics.Name = "checkBoxItalics";
-            this.checkBoxItalics.Size = new System.Drawing.Size(80, 24);
-            this.checkBoxItalics.TabIndex = 22;
-            this.checkBoxItalics.Text = "Курсив";
-            this.checkBoxItalics.UseVisualStyleBackColor = true;
-            this.checkBoxItalics.CheckedChanged += new System.EventHandler(this.SetFontAxis);
+            this._chbItalics.AutoSize = true;
+            this._chbItalics.Location = new System.Drawing.Point(83, 138);
+            this._chbItalics.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this._chbItalics.Name = "_chbItalics";
+            this._chbItalics.Size = new System.Drawing.Size(80, 24);
+            this._chbItalics.TabIndex = 22;
+            this._chbItalics.Text = "Курсив";
+            this._chbItalics.UseVisualStyleBackColor = true;
+            this._chbItalics.CheckedChanged += new System.EventHandler(this.SetFontAxis);
             // 
-            // label10
+            // _lbl10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(51, 108);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 20);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Oy";
+            this._lbl10.AutoSize = true;
+            this._lbl10.Location = new System.Drawing.Point(51, 108);
+            this._lbl10.Name = "_lbl10";
+            this._lbl10.Size = new System.Drawing.Size(28, 20);
+            this._lbl10.TabIndex = 21;
+            this._lbl10.Text = "Oy";
             // 
-            // textBoxNameY
+            // _txtNameY
             // 
-            this.textBoxNameY.Location = new System.Drawing.Point(86, 104);
-            this.textBoxNameY.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxNameY.Name = "textBoxNameY";
-            this.textBoxNameY.Size = new System.Drawing.Size(78, 26);
-            this.textBoxNameY.TabIndex = 20;
-            this.textBoxNameY.Leave += new System.EventHandler(this.SetFontAxis);
+            this._txtNameY.Location = new System.Drawing.Point(86, 104);
+            this._txtNameY.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this._txtNameY.Name = "_txtNameY";
+            this._txtNameY.Size = new System.Drawing.Size(78, 26);
+            this._txtNameY.TabIndex = 20;
+            this._txtNameY.TextChanged += new System.EventHandler(this.OnAxisYTextChanged);
             // 
-            // label9
+            // _lbl9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 72);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(28, 20);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Ox";
+            this._lbl9.AutoSize = true;
+            this._lbl9.Location = new System.Drawing.Point(51, 72);
+            this._lbl9.Name = "_lbl9";
+            this._lbl9.Size = new System.Drawing.Size(28, 20);
+            this._lbl9.TabIndex = 19;
+            this._lbl9.Text = "Ox";
             // 
-            // textBoxNameX
+            // _txtNameX
             // 
-            this.textBoxNameX.Location = new System.Drawing.Point(86, 70);
-            this.textBoxNameX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxNameX.Name = "textBoxNameX";
-            this.textBoxNameX.Size = new System.Drawing.Size(78, 26);
-            this.textBoxNameX.TabIndex = 18;
-            this.textBoxNameX.Leave += new System.EventHandler(this.SetFontAxis);
+            this._txtNameX.Location = new System.Drawing.Point(86, 70);
+            this._txtNameX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this._txtNameX.Name = "_txtNameX";
+            this._txtNameX.Size = new System.Drawing.Size(78, 26);
+            this._txtNameX.TabIndex = 18;
+            this._txtNameX.TextChanged += new System.EventHandler(this.OnAxisXTextChanged);
             // 
-            // buttonLineSettings
+            // _btnLineSettings
             // 
-            this.buttonLineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLineSettings.BackColor = System.Drawing.Color.White;
-            this.buttonLineSettings.ForeColor = System.Drawing.Color.Black;
-            this.buttonLineSettings.Location = new System.Drawing.Point(787, 719);
-            this.buttonLineSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonLineSettings.Name = "buttonLineSettings";
-            this.buttonLineSettings.Size = new System.Drawing.Size(192, 44);
-            this.buttonLineSettings.TabIndex = 19;
-            this.buttonLineSettings.Text = "Настройки линий";
-            this.buttonLineSettings.UseVisualStyleBackColor = false;
-            this.buttonLineSettings.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonLineSettings.Click += new System.EventHandler(this.OnButtonLineSettingsClick);
+            this._btnLineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnLineSettings.BackColor = System.Drawing.Color.White;
+            this._btnLineSettings.ForeColor = System.Drawing.Color.Black;
+            this._btnLineSettings.Location = new System.Drawing.Point(787, 719);
+            this._btnLineSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._btnLineSettings.Name = "_btnLineSettings";
+            this._btnLineSettings.Size = new System.Drawing.Size(192, 44);
+            this._btnLineSettings.TabIndex = 19;
+            this._btnLineSettings.Text = "Настройки линий";
+            this._btnLineSettings.UseVisualStyleBackColor = false;
+            this._btnLineSettings.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this._btnLineSettings.Click += new System.EventHandler(this.OnButtonLineSettingsClick);
             // 
-            // comboBoxSize
+            // _cmbSize
             // 
-            this.comboBoxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxSize.BackColor = System.Drawing.Color.White;
-            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSize.ForeColor = System.Drawing.Color.Black;
-            this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Items.AddRange(new object[] {
+            this._cmbSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._cmbSize.BackColor = System.Drawing.Color.White;
+            this._cmbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cmbSize.ForeColor = System.Drawing.Color.Black;
+            this._cmbSize.FormattingEnabled = true;
+            this._cmbSize.Items.AddRange(new object[] {
             "16:9",
             "16:10",
             "4:3",
             "3:2"});
-            this.comboBoxSize.Location = new System.Drawing.Point(15, 38);
-            this.comboBoxSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxSize.Name = "comboBoxSize";
-            this.comboBoxSize.Size = new System.Drawing.Size(165, 28);
-            this.comboBoxSize.TabIndex = 20;
+            this._cmbSize.Location = new System.Drawing.Point(15, 38);
+            this._cmbSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this._cmbSize.Name = "_cmbSize";
+            this._cmbSize.Size = new System.Drawing.Size(165, 28);
+            this._cmbSize.TabIndex = 20;
             // 
-            // groupBoxAxis
+            // _grbAxis
             // 
-            this.groupBoxAxis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAxis.Controls.Add(this.checkBoxItalics);
-            this.groupBoxAxis.Controls.Add(this.numericUpDownFontSize);
-            this.groupBoxAxis.Controls.Add(this.label10);
-            this.groupBoxAxis.Controls.Add(this.label8);
-            this.groupBoxAxis.Controls.Add(this.textBoxNameY);
-            this.groupBoxAxis.Controls.Add(this.textBoxNameX);
-            this.groupBoxAxis.Controls.Add(this.label9);
-            this.groupBoxAxis.ForeColor = System.Drawing.Color.White;
-            this.groupBoxAxis.Location = new System.Drawing.Point(787, 329);
-            this.groupBoxAxis.Name = "groupBoxAxis";
-            this.groupBoxAxis.Size = new System.Drawing.Size(192, 173);
-            this.groupBoxAxis.TabIndex = 23;
-            this.groupBoxAxis.TabStop = false;
-            this.groupBoxAxis.Text = "Подписи";
+            this._grbAxis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._grbAxis.Controls.Add(this._chbItalics);
+            this._grbAxis.Controls.Add(this._numFontSize);
+            this._grbAxis.Controls.Add(this._lbl10);
+            this._grbAxis.Controls.Add(this._lbl8);
+            this._grbAxis.Controls.Add(this._txtNameY);
+            this._grbAxis.Controls.Add(this._txtNameX);
+            this._grbAxis.Controls.Add(this._lbl9);
+            this._grbAxis.ForeColor = System.Drawing.Color.White;
+            this._grbAxis.Location = new System.Drawing.Point(787, 329);
+            this._grbAxis.Name = "_grbAxis";
+            this._grbAxis.Size = new System.Drawing.Size(192, 173);
+            this._grbAxis.TabIndex = 23;
+            this._grbAxis.TabStop = false;
+            this._grbAxis.Text = "Подписи";
             // 
-            // groupBoxOY
+            // _grbOY
             // 
-            this.groupBoxOY.Controls.Add(this.label11);
-            this.groupBoxOY.Controls.Add(this.label12);
-            this.groupBoxOY.Controls.Add(this.label13);
-            this.groupBoxOY.Controls.Add(this.numericUpDownYMin);
-            this.groupBoxOY.Controls.Add(this.numericUpDownYMax);
-            this.groupBoxOY.Controls.Add(this.numericUpDownYInterval);
-            this.groupBoxOY.ForeColor = System.Drawing.Color.White;
-            this.groupBoxOY.Location = new System.Drawing.Point(10, 180);
-            this.groupBoxOY.Name = "groupBoxOY";
-            this.groupBoxOY.Size = new System.Drawing.Size(170, 122);
-            this.groupBoxOY.TabIndex = 22;
-            this.groupBoxOY.TabStop = false;
-            this.groupBoxOY.Text = "Ось Oy";
+            this._grbOY.Controls.Add(this._lbl11);
+            this._grbOY.Controls.Add(this._lbl12);
+            this._grbOY.Controls.Add(this._lbl13);
+            this._grbOY.Controls.Add(this._numYMin);
+            this._grbOY.Controls.Add(this._numYMax);
+            this._grbOY.Controls.Add(this._numYInterval);
+            this._grbOY.ForeColor = System.Drawing.Color.White;
+            this._grbOY.Location = new System.Drawing.Point(10, 180);
+            this._grbOY.Name = "_grbOY";
+            this._grbOY.Size = new System.Drawing.Size(170, 122);
+            this._grbOY.TabIndex = 22;
+            this._grbOY.TabStop = false;
+            this._grbOY.Text = "Ось Oy";
             // 
-            // label11
+            // _lbl11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 56);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 20);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Max:";
+            this._lbl11.AutoSize = true;
+            this._lbl11.Location = new System.Drawing.Point(12, 56);
+            this._lbl11.Name = "_lbl11";
+            this._lbl11.Size = new System.Drawing.Size(42, 20);
+            this._lbl11.TabIndex = 12;
+            this._lbl11.Text = "Max:";
             // 
-            // label12
+            // _lbl12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 86);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 20);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Шаг:";
+            this._lbl12.AutoSize = true;
+            this._lbl12.Location = new System.Drawing.Point(12, 86);
+            this._lbl12.Name = "_lbl12";
+            this._lbl12.Size = new System.Drawing.Size(42, 20);
+            this._lbl12.TabIndex = 5;
+            this._lbl12.Text = "Шаг:";
             // 
-            // label13
+            // _lbl13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 26);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 20);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Min:";
+            this._lbl13.AutoSize = true;
+            this._lbl13.Location = new System.Drawing.Point(16, 26);
+            this._lbl13.Name = "_lbl13";
+            this._lbl13.Size = new System.Drawing.Size(38, 20);
+            this._lbl13.TabIndex = 3;
+            this._lbl13.Text = "Min:";
             // 
-            // numericUpDownYMin
+            // _numYMin
             // 
-            this.numericUpDownYMin.Location = new System.Drawing.Point(60, 24);
-            this.numericUpDownYMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownYMin.Maximum = new decimal(new int[] {
+            this._numYMin.Location = new System.Drawing.Point(60, 24);
+            this._numYMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numYMin.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDownYMin.Minimum = new decimal(new int[] {
+            this._numYMin.Minimum = new decimal(new int[] {
             -1,
             -1,
             -1,
             -2147483648});
-            this.numericUpDownYMin.Name = "numericUpDownYMin";
-            this.numericUpDownYMin.Size = new System.Drawing.Size(92, 26);
-            this.numericUpDownYMin.TabIndex = 12;
-            this.numericUpDownYMin.ValueChanged += new System.EventHandler(this.NumericUpDownYMin_ValueChanged);
+            this._numYMin.Name = "_numYMin";
+            this._numYMin.Size = new System.Drawing.Size(92, 26);
+            this._numYMin.TabIndex = 12;
+            this._numYMin.ValueChanged += new System.EventHandler(this.OnYMinChanged);
             // 
-            // numericUpDownYMax
+            // _numYMax
             // 
-            this.numericUpDownYMax.Location = new System.Drawing.Point(60, 54);
-            this.numericUpDownYMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownYMax.Maximum = new decimal(new int[] {
+            this._numYMax.Location = new System.Drawing.Point(60, 54);
+            this._numYMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numYMax.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDownYMax.Minimum = new decimal(new int[] {
+            this._numYMax.Minimum = new decimal(new int[] {
             -1,
             -1,
             -1,
             -2147483648});
-            this.numericUpDownYMax.Name = "numericUpDownYMax";
-            this.numericUpDownYMax.Size = new System.Drawing.Size(92, 26);
-            this.numericUpDownYMax.TabIndex = 13;
-            this.numericUpDownYMax.ValueChanged += new System.EventHandler(this.NumericUpDownYMax_ValueChanged);
+            this._numYMax.Name = "_numYMax";
+            this._numYMax.Size = new System.Drawing.Size(92, 26);
+            this._numYMax.TabIndex = 13;
+            this._numYMax.ValueChanged += new System.EventHandler(this.OnYMaxChanged);
             // 
-            // numericUpDownYInterval
+            // _numYInterval
             // 
-            this.numericUpDownYInterval.Location = new System.Drawing.Point(60, 86);
-            this.numericUpDownYInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownYInterval.Maximum = decimal.MaxValue;
-            this.numericUpDownYInterval.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDownYInterval.Name = "numericUpDownYInterval";
-            this.numericUpDownYInterval.Size = new System.Drawing.Size(92, 26);
-            this.numericUpDownYInterval.TabIndex = 14;
-            this.numericUpDownYInterval.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDownYInterval.ValueChanged += new System.EventHandler(this.NumericUpDownYInterval_ValueChanged);
-            // 
-            // groupBoxOX
-            // 
-            this.groupBoxOX.Controls.Add(this.label3);
-            this.groupBoxOX.Controls.Add(this.label2);
-            this.groupBoxOX.Controls.Add(this.numericUpDownXInterval);
-            this.groupBoxOX.Controls.Add(this.label1);
-            this.groupBoxOX.Controls.Add(this.numericUpDownXMin);
-            this.groupBoxOX.Controls.Add(this.numericUpDownXMax);
-            this.groupBoxOX.ForeColor = System.Drawing.Color.White;
-            this.groupBoxOX.Location = new System.Drawing.Point(10, 52);
-            this.groupBoxOX.Name = "groupBoxOX";
-            this.groupBoxOX.Size = new System.Drawing.Size(170, 122);
-            this.groupBoxOX.TabIndex = 21;
-            this.groupBoxOX.TabStop = false;
-            this.groupBoxOX.Text = "Ось Ox";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Шаг:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Max:";
-            // 
-            // numericUpDownXInterval
-            // 
-            this.numericUpDownXInterval.Location = new System.Drawing.Point(62, 84);
-            this.numericUpDownXInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownXInterval.Maximum = new decimal(new int[] {
+            this._numYInterval.Location = new System.Drawing.Point(60, 86);
+            this._numYInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numYInterval.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDownXInterval.Minimum = new decimal(new int[] {
+            this._numYInterval.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownXInterval.Name = "numericUpDownXInterval";
-            this.numericUpDownXInterval.Size = new System.Drawing.Size(92, 26);
-            this.numericUpDownXInterval.TabIndex = 11;
-            this.numericUpDownXInterval.Value = new decimal(new int[] {
+            this._numYInterval.Name = "_numYInterval";
+            this._numYInterval.Size = new System.Drawing.Size(92, 26);
+            this._numYInterval.TabIndex = 14;
+            this._numYInterval.Value = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownXInterval.ValueChanged += new System.EventHandler(this.NumericUpDownXInterval_ValueChanged);
+            this._numYInterval.ValueChanged += new System.EventHandler(this.OnYIntervalChanged);
             // 
-            // label1
+            // _grbOX
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Min:";
+            this._grbOX.Controls.Add(this._lbl3);
+            this._grbOX.Controls.Add(this._lbl2);
+            this._grbOX.Controls.Add(this._numXInterval);
+            this._grbOX.Controls.Add(this._lbl1);
+            this._grbOX.Controls.Add(this._numXMin);
+            this._grbOX.Controls.Add(this._numXMax);
+            this._grbOX.ForeColor = System.Drawing.Color.White;
+            this._grbOX.Location = new System.Drawing.Point(10, 52);
+            this._grbOX.Name = "_grbOX";
+            this._grbOX.Size = new System.Drawing.Size(170, 122);
+            this._grbOX.TabIndex = 21;
+            this._grbOX.TabStop = false;
+            this._grbOX.Text = "Ось Ox";
             // 
-            // numericUpDownXMin
+            // _lbl3
             // 
-            this.numericUpDownXMin.Location = new System.Drawing.Point(62, 24);
-            this.numericUpDownXMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownXMin.Maximum = new decimal(new int[] {
+            this._lbl3.AutoSize = true;
+            this._lbl3.Location = new System.Drawing.Point(14, 86);
+            this._lbl3.Name = "_lbl3";
+            this._lbl3.Size = new System.Drawing.Size(42, 20);
+            this._lbl3.TabIndex = 5;
+            this._lbl3.Text = "Шаг:";
+            // 
+            // _lbl2
+            // 
+            this._lbl2.AutoSize = true;
+            this._lbl2.Location = new System.Drawing.Point(14, 56);
+            this._lbl2.Name = "_lbl2";
+            this._lbl2.Size = new System.Drawing.Size(42, 20);
+            this._lbl2.TabIndex = 12;
+            this._lbl2.Text = "Max:";
+            // 
+            // _numXInterval
+            // 
+            this._numXInterval.Location = new System.Drawing.Point(62, 84);
+            this._numXInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numXInterval.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDownXMin.Minimum = new decimal(new int[] {
+            this._numXInterval.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this._numXInterval.Name = "_numXInterval";
+            this._numXInterval.Size = new System.Drawing.Size(92, 26);
+            this._numXInterval.TabIndex = 11;
+            this._numXInterval.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this._numXInterval.ValueChanged += new System.EventHandler(this.OnXIntervalChanged);
+            // 
+            // _lbl1
+            // 
+            this._lbl1.AutoSize = true;
+            this._lbl1.Location = new System.Drawing.Point(18, 26);
+            this._lbl1.Name = "_lbl1";
+            this._lbl1.Size = new System.Drawing.Size(38, 20);
+            this._lbl1.TabIndex = 3;
+            this._lbl1.Text = "Min:";
+            // 
+            // _numXMin
+            // 
+            this._numXMin.Location = new System.Drawing.Point(62, 24);
+            this._numXMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numXMin.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this._numXMin.Minimum = new decimal(new int[] {
             -1,
             -1,
             -1,
             -2147483648});
-            this.numericUpDownXMin.Name = "numericUpDownXMin";
-            this.numericUpDownXMin.Size = new System.Drawing.Size(92, 26);
-            this.numericUpDownXMin.TabIndex = 9;
-            this.numericUpDownXMin.ValueChanged += new System.EventHandler(this.NumericUpDownXMin_ValueChanged);
+            this._numXMin.Name = "_numXMin";
+            this._numXMin.Size = new System.Drawing.Size(92, 26);
+            this._numXMin.TabIndex = 9;
+            this._numXMin.ValueChanged += new System.EventHandler(this.OnXMinChanged);
             // 
-            // numericUpDownXMax
+            // _numXMax
             // 
-            this.numericUpDownXMax.Location = new System.Drawing.Point(62, 54);
-            this.numericUpDownXMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownXMax.Maximum = new decimal(new int[] {
+            this._numXMax.Location = new System.Drawing.Point(62, 54);
+            this._numXMax.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._numXMax.Maximum = new decimal(new int[] {
             -1,
             -1,
             -1,
             0});
-            this.numericUpDownXMax.Minimum = new decimal(new int[] {
+            this._numXMax.Minimum = new decimal(new int[] {
             -1,
             -1,
             -1,
             -2147483648});
-            this.numericUpDownXMax.Name = "numericUpDownXMax";
-            this.numericUpDownXMax.Size = new System.Drawing.Size(92, 26);
-            this.numericUpDownXMax.TabIndex = 10;
-            this.numericUpDownXMax.ValueChanged += new System.EventHandler(this.NumericUpDownXMax_ValueChanged);
+            this._numXMax.Name = "_numXMax";
+            this._numXMax.Size = new System.Drawing.Size(92, 26);
+            this._numXMax.TabIndex = 10;
+            this._numXMax.ValueChanged += new System.EventHandler(this.OnXMaxChanged);
             // 
-            // numericUpDownDecimalPlaces
+            // _numDecimalPlaces
             // 
-            this.numericUpDownDecimalPlaces.Location = new System.Drawing.Point(125, 20);
-            this.numericUpDownDecimalPlaces.Maximum = new decimal(new int[] {
+            this._numDecimalPlaces.Location = new System.Drawing.Point(125, 20);
+            this._numDecimalPlaces.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDownDecimalPlaces.Name = "numericUpDownDecimalPlaces";
-            this.numericUpDownDecimalPlaces.Size = new System.Drawing.Size(55, 26);
-            this.numericUpDownDecimalPlaces.TabIndex = 13;
-            this.numericUpDownDecimalPlaces.Value = new decimal(new int[] {
+            this._numDecimalPlaces.Name = "_numDecimalPlaces";
+            this._numDecimalPlaces.Size = new System.Drawing.Size(55, 26);
+            this._numDecimalPlaces.TabIndex = 13;
+            this._numDecimalPlaces.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numericUpDownDecimalPlaces.ValueChanged += new System.EventHandler(this.NumericUpDownDecimalPlaces_ValueChanged);
+            this._numDecimalPlaces.ValueChanged += new System.EventHandler(this.OnDecimalPlacesChanged);
             // 
-            // label5
+            // _lbl5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Число знаков";
+            this._lbl5.AutoSize = true;
+            this._lbl5.Location = new System.Drawing.Point(6, 22);
+            this._lbl5.Name = "_lbl5";
+            this._lbl5.Size = new System.Drawing.Size(113, 20);
+            this._lbl5.TabIndex = 14;
+            this._lbl5.Text = "Число знаков";
             // 
-            // groupBoxNumerics
+            // _grbNum
             // 
-            this.groupBoxNumerics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxNumerics.Controls.Add(this.label5);
-            this.groupBoxNumerics.Controls.Add(this.numericUpDownDecimalPlaces);
-            this.groupBoxNumerics.Controls.Add(this.groupBoxOX);
-            this.groupBoxNumerics.Controls.Add(this.groupBoxOY);
-            this.groupBoxNumerics.ForeColor = System.Drawing.Color.White;
-            this.groupBoxNumerics.Location = new System.Drawing.Point(787, 12);
-            this.groupBoxNumerics.Name = "groupBoxNumerics";
-            this.groupBoxNumerics.Size = new System.Drawing.Size(192, 311);
-            this.groupBoxNumerics.TabIndex = 24;
-            this.groupBoxNumerics.TabStop = false;
-            this.groupBoxNumerics.Text = "Настройки осей";
+            this._grbNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._grbNum.Controls.Add(this._lbl5);
+            this._grbNum.Controls.Add(this._numDecimalPlaces);
+            this._grbNum.Controls.Add(this._grbOX);
+            this._grbNum.Controls.Add(this._grbOY);
+            this._grbNum.ForeColor = System.Drawing.Color.White;
+            this._grbNum.Location = new System.Drawing.Point(787, 12);
+            this._grbNum.Name = "_grbNum";
+            this._grbNum.Size = new System.Drawing.Size(192, 311);
+            this._grbNum.TabIndex = 24;
+            this._grbNum.TabStop = false;
+            this._grbNum.Text = "Настройки осей";
             // 
-            // groupBoxOther
+            // _grbOther
             // 
-            this.groupBoxOther.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxOther.Controls.Add(this.comboBoxSize);
-            this.groupBoxOther.ForeColor = System.Drawing.Color.White;
-            this.groupBoxOther.Location = new System.Drawing.Point(787, 508);
-            this.groupBoxOther.Name = "groupBoxOther";
-            this.groupBoxOther.Size = new System.Drawing.Size(192, 80);
-            this.groupBoxOther.TabIndex = 24;
-            this.groupBoxOther.TabStop = false;
-            this.groupBoxOther.Text = "Соотношение";
+            this._grbOther.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._grbOther.Controls.Add(this._cmbSize);
+            this._grbOther.ForeColor = System.Drawing.Color.White;
+            this._grbOther.Location = new System.Drawing.Point(787, 508);
+            this._grbOther.Name = "_grbOther";
+            this._grbOther.Size = new System.Drawing.Size(192, 80);
+            this._grbOther.TabIndex = 24;
+            this._grbOther.TabStop = false;
+            this._grbOther.Text = "Соотношение";
             // 
-            // buttonOpen
+            // _btnOpen
             // 
-            this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpen.BackColor = System.Drawing.Color.White;
-            this.buttonOpen.ForeColor = System.Drawing.Color.Black;
-            this.buttonOpen.Location = new System.Drawing.Point(787, 767);
-            this.buttonOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(192, 44);
-            this.buttonOpen.TabIndex = 25;
-            this.buttonOpen.Text = "Открыть";
-            this.buttonOpen.UseVisualStyleBackColor = false;
-            this.buttonOpen.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonOpen.Click += new System.EventHandler(this.OnButtonOpenClick);
+            this._btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnOpen.BackColor = System.Drawing.Color.White;
+            this._btnOpen.ForeColor = System.Drawing.Color.Black;
+            this._btnOpen.Location = new System.Drawing.Point(787, 767);
+            this._btnOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._btnOpen.Name = "_btnOpen";
+            this._btnOpen.Size = new System.Drawing.Size(192, 44);
+            this._btnOpen.TabIndex = 25;
+            this._btnOpen.Text = "Открыть";
+            this._btnOpen.UseVisualStyleBackColor = false;
+            this._btnOpen.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this._btnOpen.Click += new System.EventHandler(this.OnButtonOpenClick);
             // 
-            // chart
+            // _chart
             // 
-            this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.AxisX.Crossing = 0D;
@@ -515,16 +519,16 @@ namespace GraphForArticle
             chartArea1.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
             chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
             chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
+            this._chart.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
             legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(14, 14);
-            this.chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chart.Name = "chart";
-            this.chart.Size = new System.Drawing.Size(767, 701);
-            this.chart.TabIndex = 0;
-            this.chart.Text = "chart";
+            this._chart.Legends.Add(legend1);
+            this._chart.Location = new System.Drawing.Point(14, 14);
+            this._chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._chart.Name = "_chart";
+            this._chart.Size = new System.Drawing.Size(767, 701);
+            this._chart.TabIndex = 0;
+            this._chart.Text = "chart";
             // 
             // FormMain
             // 
@@ -532,13 +536,13 @@ namespace GraphForArticle
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(990, 870);
-            this.Controls.Add(this.buttonOpen);
-            this.Controls.Add(this.groupBoxOther);
-            this.Controls.Add(this.groupBoxNumerics);
-            this.Controls.Add(this.buttonLineSettings);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.groupBoxAxis);
-            this.Controls.Add(this.chart);
+            this.Controls.Add(this._btnOpen);
+            this.Controls.Add(this._grbOther);
+            this.Controls.Add(this._grbNum);
+            this.Controls.Add(this._btnLineSettings);
+            this.Controls.Add(this._btnSave);
+            this.Controls.Add(this._grbAxis);
+            this.Controls.Add(this._chart);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -546,60 +550,60 @@ namespace GraphForArticle
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Графики";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormChart_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
-            this.groupBoxAxis.ResumeLayout(false);
-            this.groupBoxAxis.PerformLayout();
-            this.groupBoxOY.ResumeLayout(false);
-            this.groupBoxOY.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYInterval)).EndInit();
-            this.groupBoxOX.ResumeLayout(false);
-            this.groupBoxOX.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXInterval)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDecimalPlaces)).EndInit();
-            this.groupBoxNumerics.ResumeLayout(false);
-            this.groupBoxNumerics.PerformLayout();
-            this.groupBoxOther.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            this.Load += new System.EventHandler(this.OnFormLoad);
+            ((System.ComponentModel.ISupportInitialize)(this._numFontSize)).EndInit();
+            this._grbAxis.ResumeLayout(false);
+            this._grbAxis.PerformLayout();
+            this._grbOY.ResumeLayout(false);
+            this._grbOY.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numYMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numYMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numYInterval)).EndInit();
+            this._grbOX.ResumeLayout(false);
+            this._grbOX.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numXInterval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numXMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numXMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numDecimalPlaces)).EndInit();
+            this._grbNum.ResumeLayout(false);
+            this._grbNum.PerformLayout();
+            this._grbOther.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._chart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDownFontSize;
-        private System.Windows.Forms.Button buttonLineSettings;
-        private System.Windows.Forms.ComboBox comboBoxSize;
-        private System.Windows.Forms.CheckBox checkBoxItalics;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxNameY;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxNameX;
-        private System.Windows.Forms.GroupBox groupBoxAxis;
-        private System.Windows.Forms.GroupBox groupBoxOY;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDownYMin;
-        private System.Windows.Forms.NumericUpDown numericUpDownYMax;
-        private System.Windows.Forms.NumericUpDown numericUpDownYInterval;
-        private System.Windows.Forms.GroupBox groupBoxOX;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDownXInterval;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDownXMin;
-        private System.Windows.Forms.NumericUpDown numericUpDownXMax;
-        private System.Windows.Forms.NumericUpDown numericUpDownDecimalPlaces;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBoxNumerics;
-        private System.Windows.Forms.GroupBox groupBoxOther;
-        private System.Windows.Forms.Button buttonOpen;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.Button _btnLineSettings;
+        private System.Windows.Forms.Button _btnOpen;
+        private System.Windows.Forms.Button _btnSave;
+        private System.Windows.Forms.CheckBox _chbItalics;
+        private System.Windows.Forms.ComboBox _cmbSize;
+        private System.Windows.Forms.GroupBox _grbAxis;
+        private System.Windows.Forms.GroupBox _grbNum;
+        private System.Windows.Forms.GroupBox _grbOX;
+        private System.Windows.Forms.GroupBox _grbOY;
+        private System.Windows.Forms.GroupBox _grbOther;
+        private System.Windows.Forms.Label _lbl1;
+        private System.Windows.Forms.Label _lbl2;
+        private System.Windows.Forms.Label _lbl3;
+        private System.Windows.Forms.Label _lbl5;
+        private System.Windows.Forms.Label _lbl8;
+        private System.Windows.Forms.Label _lbl9;
+        private System.Windows.Forms.Label _lbl10;
+        private System.Windows.Forms.Label _lbl11;
+        private System.Windows.Forms.Label _lbl12;
+        private System.Windows.Forms.Label _lbl13;
+        private System.Windows.Forms.NumericUpDown _numDecimalPlaces;
+        private System.Windows.Forms.NumericUpDown _numFontSize;
+        private System.Windows.Forms.NumericUpDown _numXMin;
+        private System.Windows.Forms.NumericUpDown _numYMin;
+        private System.Windows.Forms.NumericUpDown _numXMax;
+        private System.Windows.Forms.NumericUpDown _numYMax;
+        private System.Windows.Forms.NumericUpDown _numXInterval;
+        private System.Windows.Forms.NumericUpDown _numYInterval;
+        private System.Windows.Forms.TextBox _txtNameX;
+        private System.Windows.Forms.TextBox _txtNameY;
+        private System.Windows.Forms.DataVisualization.Charting.Chart _chart;
     }
 }
