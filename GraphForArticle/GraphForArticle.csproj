@@ -47,24 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormMain.cs">
+    <Compile Include="Classes\FileHandler.cs" />
+    <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSettingsLine.cs">
+    <Compile Include="Forms\FormSettingsLine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSettingsLine.Designer.cs">
+    <Compile Include="Forms\FormSettingsLine.Designer.cs">
       <DependentUpon>FormSettingsLine.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSettingsLine.resx">
+    <EmbeddedResource Include="Forms\FormSettingsLine.resx">
       <DependentUpon>FormSettingsLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

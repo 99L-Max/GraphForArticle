@@ -41,7 +41,6 @@ namespace GraphForArticle
             this._lbl9 = new System.Windows.Forms.Label();
             this._txtNameX = new System.Windows.Forms.TextBox();
             this._btnLineSettings = new System.Windows.Forms.Button();
-            this._cmbSize = new System.Windows.Forms.ComboBox();
             this._grbAxis = new System.Windows.Forms.GroupBox();
             this._grbOY = new System.Windows.Forms.GroupBox();
             this._lbl11 = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@ namespace GraphForArticle
             this._numDecimalPlaces = new System.Windows.Forms.NumericUpDown();
             this._lbl5 = new System.Windows.Forms.Label();
             this._grbNum = new System.Windows.Forms.GroupBox();
-            this._grbOther = new System.Windows.Forms.GroupBox();
             this._btnOpen = new System.Windows.Forms.Button();
             this._chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this._numFontSize)).BeginInit();
@@ -75,7 +73,6 @@ namespace GraphForArticle
             ((System.ComponentModel.ISupportInitialize)(this._numXMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numDecimalPlaces)).BeginInit();
             this._grbNum.SuspendLayout();
-            this._grbOther.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,24 +181,6 @@ namespace GraphForArticle
             this._btnLineSettings.UseVisualStyleBackColor = false;
             this._btnLineSettings.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
             this._btnLineSettings.Click += new System.EventHandler(this.OnButtonLineSettingsClick);
-            // 
-            // _cmbSize
-            // 
-            this._cmbSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._cmbSize.BackColor = System.Drawing.Color.White;
-            this._cmbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cmbSize.ForeColor = System.Drawing.Color.Black;
-            this._cmbSize.FormattingEnabled = true;
-            this._cmbSize.Items.AddRange(new object[] {
-            "16:9",
-            "16:10",
-            "4:3",
-            "3:2"});
-            this._cmbSize.Location = new System.Drawing.Point(15, 38);
-            this._cmbSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this._cmbSize.Name = "_cmbSize";
-            this._cmbSize.Size = new System.Drawing.Size(165, 28);
-            this._cmbSize.TabIndex = 20;
             // 
             // _grbAxis
             // 
@@ -473,18 +452,6 @@ namespace GraphForArticle
             this._grbNum.TabStop = false;
             this._grbNum.Text = "Настройки осей";
             // 
-            // _grbOther
-            // 
-            this._grbOther.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._grbOther.Controls.Add(this._cmbSize);
-            this._grbOther.ForeColor = System.Drawing.Color.White;
-            this._grbOther.Location = new System.Drawing.Point(787, 508);
-            this._grbOther.Name = "_grbOther";
-            this._grbOther.Size = new System.Drawing.Size(192, 80);
-            this._grbOther.TabIndex = 24;
-            this._grbOther.TabStop = false;
-            this._grbOther.Text = "Соотношение";
-            // 
             // _btnOpen
             // 
             this._btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -529,6 +496,7 @@ namespace GraphForArticle
             this._chart.Size = new System.Drawing.Size(767, 701);
             this._chart.TabIndex = 0;
             this._chart.Text = "chart";
+            this._chart.SizeChanged += new System.EventHandler(this.OnChartSizeChanged);
             // 
             // FormMain
             // 
@@ -537,7 +505,6 @@ namespace GraphForArticle
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(990, 870);
             this.Controls.Add(this._btnOpen);
-            this.Controls.Add(this._grbOther);
             this.Controls.Add(this._grbNum);
             this.Controls.Add(this._btnLineSettings);
             this.Controls.Add(this._btnSave);
@@ -567,7 +534,6 @@ namespace GraphForArticle
             ((System.ComponentModel.ISupportInitialize)(this._numDecimalPlaces)).EndInit();
             this._grbNum.ResumeLayout(false);
             this._grbNum.PerformLayout();
-            this._grbOther.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._chart)).EndInit();
             this.ResumeLayout(false);
 
@@ -578,12 +544,10 @@ namespace GraphForArticle
         private System.Windows.Forms.Button _btnOpen;
         private System.Windows.Forms.Button _btnSave;
         private System.Windows.Forms.CheckBox _chbItalics;
-        private System.Windows.Forms.ComboBox _cmbSize;
         private System.Windows.Forms.GroupBox _grbAxis;
         private System.Windows.Forms.GroupBox _grbNum;
         private System.Windows.Forms.GroupBox _grbOX;
         private System.Windows.Forms.GroupBox _grbOY;
-        private System.Windows.Forms.GroupBox _grbOther;
         private System.Windows.Forms.Label _lbl1;
         private System.Windows.Forms.Label _lbl2;
         private System.Windows.Forms.Label _lbl3;
