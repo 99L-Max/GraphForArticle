@@ -47,7 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\FileHandler.cs" />
+    <Compile Include="Classes\CollectionHandler.cs" />
+    <Compile Include="Classes\Factories\ColorsFactory.cs" />
+    <Compile Include="Classes\Factories\EnumFactory.cs" />
+    <Compile Include="Classes\User Files\FileReader.cs" />
+    <Compile Include="Classes\User Files\FileWriter.cs" />
     <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

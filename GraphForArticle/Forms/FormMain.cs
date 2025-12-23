@@ -8,25 +8,53 @@ namespace GraphForArticle
 {
     partial class FormMain : Form
     {
+        private const int PointsMinCount = 2;
+        private const int ColumnsMinCount = 2;
+        private const decimal DefaultSectionsCount = 5m;
+
+        private readonly ColorsFactory _colorsFactory = new ColorsFactory();
         private readonly Size _aspectRatioChart = new Size(16, 9);
 
         private Font _fontLabel;
         private Font _fontTitle;
 
-        private static readonly Color[] s_colors;
-
-        static FormMain()
-        {
-            s_colors = new Color[] {
-                Color.Red, Color.Green, Color.Blue,
-                Color.Orange, Color.Purple, Color.Black,
-                Color.Maroon, Color.DarkGreen, Color.Cyan,
-                Color.Gold, Color.Indigo, Color.DimGray
-            };
+        public FormMain()
+        { 
+            InitializeComponent();
         }
 
-        public FormMain() =>
-            InitializeComponent();
+        private void SetChart(double[,] data)
+        {
+            _chart.Series.Clear();
+
+            for (int i = 0; i < data.GetLength(1) - 1; i++)
+            {
+                Series series = new Series
+                {
+                    BorderWidth = 3,
+                    ChartType = SeriesChartType.Spline,
+                    Color = _colorsFactory.GetColor(i)
+                };
+
+                _chart.Series.Add(series);
+            }
+
+            for (int i = 0; i < data.GetLength(0); i++)
+                for (int j = 1; j < data.GetLength(1); j++)
+                    _chart.Series[j - 1].Points.AddXY(data[i, 0], data[i, j]);
+
+            CollectionHandler.FindMinMax(data, out double xMin, out double xMax, out double yMin, out double yMax);
+
+            _numXMin.Value = (decimal)xMin;
+            _numXMax.Value = (decimal)xMax;
+            _numYMin.Value = (decimal)Math.Floor(yMin);
+            _numYMax.Value = (decimal)Math.Ceiling(yMax);
+
+            _numXInterval.Value = (_numXMax.Value - _numXMin.Value) / DefaultSectionsCount;
+            _numYInterval.Value = (_numYMax.Value - _numYMin.Value) / DefaultSectionsCount;
+
+            _btnSave.Enabled = _btnLineSettings.Enabled = true;
+        }
 
         private void OnFormLoad(object sender, EventArgs e)
         {
@@ -41,73 +69,37 @@ namespace GraphForArticle
         private void OnButtonLineSettingsClick(object sender, EventArgs e)
         {
             if (_chart.Series.Count > 0)
-                (new FormSettingsLine(_chart.Series)).ShowDialog();
+                new FormSettingsLine(_chart.Series).ShowDialog();
         }
 
         private void OnButtonOpenClick(object sender, EventArgs e)
         {
-            try
+            if (FileReader.TryOpen(out double[,] data))
             {
-                var data = FileHandler.Open();
-
-                if (data.GetLength(0) < 2)
-                    throw new Exception("Недостаточно данных. Необходимо минимум по две точки для каждого графика.");
-
-                if (data.GetLength(1) < 2)
-                    throw new Exception("Недостаточно данных. Необходимо минимум два столбца: x и y.");
-
-                _chart.Series.Clear();
-
-                for (int i = 0; i < data.GetLength(1) - 1; i++)
+                if (data.GetLength(0) < PointsMinCount)
                 {
-                    var series = new Series
-                    {
-                        BorderWidth = 3,//По умолчанию
-                        ChartType = SeriesChartType.Spline,
-                        Color = s_colors[i % s_colors.Length]
-                    };
-
-                    _chart.Series.Add(series);
+                    MessageBox.Show($"Недостаточно данных. Необходимо минимум точек: {PointsMinCount}", "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                var xMin = double.MaxValue;
-                var xMax = double.MinValue;
-                var yMin = double.MaxValue;
-                var yMax = double.MinValue;
-
-                for (int i = 0; i < data.GetLength(0); i++)
+                if (data.GetLength(1) < ColumnsMinCount)
                 {
-                    if (xMin > data[i, 0]) xMin = data[i, 0];
-                    if (xMax < data[i, 0]) xMax = data[i, 0];
-
-                    for (int j = 1; j < data.GetLength(1); j++)
-                    {
-                        _chart.Series[j - 1].Points.AddXY(data[i, 0], data[i, j]);
-
-                        if (yMin > data[i, j]) yMin = data[i, j];
-                        if (yMax < data[i, j]) yMax = data[i, j];
-                    }
+                    MessageBox.Show($"Недостаточно данных. Необходимо минимум столбцов: {ColumnsMinCount}", "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                _numXMin.Value = (decimal)xMin;
-                _numXMax.Value = (decimal)xMax;
-                _numYMin.Value = (decimal)Math.Floor(yMin);
-                _numYMax.Value = (decimal)Math.Ceiling(yMax);
-
-                //По умолчанию на 5 отрезков делим
-                _numXInterval.Value = (_numXMax.Value - _numXMin.Value) / 5m;
-                _numYInterval.Value = (_numYMax.Value - _numYMin.Value) / 5m;
-
-                _btnSave.Enabled = _btnLineSettings.Enabled = true;
+                SetChart(data);
             }
-            catch (Exception exc)
+            else
             {
-                MessageBox.Show($"{exc.Message}\n\n{Resources.ErrorMessage}", "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{Resources.ErrorMessage}", "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void OnButtonSaveClick(object sender, EventArgs e) =>
-            FileHandler.Save(_chart);
+        private void OnButtonSaveClick(object sender, EventArgs e)
+        { 
+            FileWriter.Save(_chart);
+        }
 
         private void OnDecimalPlacesChanged(object sender, EventArgs e)
         {
@@ -115,7 +107,7 @@ namespace GraphForArticle
             var increment = (decimal)Math.Pow(10, -(int)_numDecimalPlaces.Value);
             var numericUpDowns = new NumericUpDown[] { _numXMin, _numYMin, _numXMax, _numYMax, _numXInterval, _numYInterval };
 
-            foreach (var ctrl in numericUpDowns)
+            foreach (NumericUpDown ctrl in numericUpDowns)
             {
                 ctrl.DecimalPlaces = decimalPlaces;
                 ctrl.Increment = increment;
@@ -146,22 +138,30 @@ namespace GraphForArticle
             _chart.ChartAreas[0].AxisY.Maximum = (double)_numYMax.Value;
         }
 
-        private void OnXIntervalChanged(object sender, EventArgs e) =>
+        private void OnXIntervalChanged(object sender, EventArgs e)
+        { 
             _chart.ChartAreas[0].AxisX.Interval = (double)_numXInterval.Value;
+        }
 
-        private void OnYIntervalChanged(object sender, EventArgs e) =>
+        private void OnYIntervalChanged(object sender, EventArgs e)
+        { 
             _chart.ChartAreas[0].AxisY.Interval = (double)_numYInterval.Value;
+        }
 
-        private void OnAxisYTextChanged(object sender, EventArgs e) =>
+        private void OnAxisYTextChanged(object sender, EventArgs e)
+        { 
             _chart.ChartAreas[0].AxisY.Title = _txtNameY.Text;
+        }
 
-        private void OnAxisXTextChanged(object sender, EventArgs e) =>
+        private void OnAxisXTextChanged(object sender, EventArgs e)
+        { 
             _chart.ChartAreas[0].AxisX.Title = _txtNameX.Text;
+        }
 
         private void OnButtonEnabledChanged(object sender, EventArgs e)
         {
-            if (sender is Button btn)
-                btn.BackColor = btn.Enabled ? Color.White : Color.Gray;
+            if (sender is Button button)
+                button.BackColor = button.Enabled ? Color.White : Color.Gray;
         }
 
         private void SetFontAxis(object sender, EventArgs e)
@@ -182,7 +182,9 @@ namespace GraphForArticle
             _fontTitle = fontTitle;
         }
 
-        private void OnChartSizeChanged(object sender, EventArgs e) =>
+        private void OnChartSizeChanged(object sender, EventArgs e)
+        { 
             _chart.Height = _chart.Width * _aspectRatioChart.Height / _aspectRatioChart.Width;
+        }
     }
 }

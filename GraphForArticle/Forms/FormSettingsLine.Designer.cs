@@ -58,16 +58,16 @@ namespace GraphForArticle
             this._btnOK = new System.Windows.Forms.Button();
             this._lblCurrentColor = new System.Windows.Forms.Label();
             this._lbl3 = new System.Windows.Forms.Label();
-            this._numR = new System.Windows.Forms.NumericUpDown();
-            this._numG = new System.Windows.Forms.NumericUpDown();
+            this._numRed = new System.Windows.Forms.NumericUpDown();
+            this._numGreen = new System.Windows.Forms.NumericUpDown();
             this._lbl25 = new System.Windows.Forms.Label();
-            this._numB = new System.Windows.Forms.NumericUpDown();
+            this._numBlue = new System.Windows.Forms.NumericUpDown();
             this._lbl26 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._numNumberLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numBorderWidth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numBlue)).BeginInit();
             this.SuspendLayout();
             // 
             // _numNumberLine
@@ -434,39 +434,39 @@ namespace GraphForArticle
             // 
             // _numR
             // 
-            this._numR.Location = new System.Drawing.Point(366, 11);
-            this._numR.Maximum = new decimal(new int[] {
+            this._numRed.Location = new System.Drawing.Point(366, 11);
+            this._numRed.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this._numR.Name = "_numR";
-            this._numR.Size = new System.Drawing.Size(57, 26);
-            this._numR.TabIndex = 65;
-            this._numR.Value = new decimal(new int[] {
+            this._numRed.Name = "_numR";
+            this._numRed.Size = new System.Drawing.Size(57, 26);
+            this._numRed.TabIndex = 65;
+            this._numRed.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this._numR.ValueChanged += new System.EventHandler(this.OnRGBChanged);
+            this._numRed.ValueChanged += new System.EventHandler(this.OnRGBChanged);
             // 
             // _numG
             // 
-            this._numG.Location = new System.Drawing.Point(366, 43);
-            this._numG.Maximum = new decimal(new int[] {
+            this._numGreen.Location = new System.Drawing.Point(366, 43);
+            this._numGreen.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this._numG.Name = "_numG";
-            this._numG.Size = new System.Drawing.Size(57, 26);
-            this._numG.TabIndex = 67;
-            this._numG.Value = new decimal(new int[] {
+            this._numGreen.Name = "_numG";
+            this._numGreen.Size = new System.Drawing.Size(57, 26);
+            this._numGreen.TabIndex = 67;
+            this._numGreen.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this._numG.ValueChanged += new System.EventHandler(this.OnRGBChanged);
+            this._numGreen.ValueChanged += new System.EventHandler(this.OnRGBChanged);
             // 
             // _lbl25
             // 
@@ -479,21 +479,21 @@ namespace GraphForArticle
             // 
             // _numB
             // 
-            this._numB.Location = new System.Drawing.Point(366, 75);
-            this._numB.Maximum = new decimal(new int[] {
+            this._numBlue.Location = new System.Drawing.Point(366, 75);
+            this._numBlue.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this._numB.Name = "_numB";
-            this._numB.Size = new System.Drawing.Size(57, 26);
-            this._numB.TabIndex = 69;
-            this._numB.Value = new decimal(new int[] {
+            this._numBlue.Name = "_numB";
+            this._numBlue.Size = new System.Drawing.Size(57, 26);
+            this._numBlue.TabIndex = 69;
+            this._numBlue.Value = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this._numB.ValueChanged += new System.EventHandler(this.OnRGBChanged);
+            this._numBlue.ValueChanged += new System.EventHandler(this.OnRGBChanged);
             // 
             // _lbl26
             // 
@@ -511,11 +511,11 @@ namespace GraphForArticle
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._btnOK;
             this.ClientSize = new System.Drawing.Size(438, 230);
-            this.Controls.Add(this._numB);
+            this.Controls.Add(this._numBlue);
             this.Controls.Add(this._lbl26);
-            this.Controls.Add(this._numG);
+            this.Controls.Add(this._numGreen);
             this.Controls.Add(this._lbl25);
-            this.Controls.Add(this._numR);
+            this.Controls.Add(this._numRed);
             this.Controls.Add(this._lbl3);
             this.Controls.Add(this._lblCurrentColor);
             this.Controls.Add(this._btnOK);
@@ -557,9 +557,9 @@ namespace GraphForArticle
             this.Load += new System.EventHandler(this.OnFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this._numNumberLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numBorderWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._numB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numBlue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,10 +595,10 @@ namespace GraphForArticle
         private System.Windows.Forms.Button _btnOK;
         private System.Windows.Forms.Label _lblCurrentColor;
         private System.Windows.Forms.Label _lbl3;
-        private System.Windows.Forms.NumericUpDown _numR;
-        private System.Windows.Forms.NumericUpDown _numG;
+        private System.Windows.Forms.NumericUpDown _numRed;
+        private System.Windows.Forms.NumericUpDown _numGreen;
         private System.Windows.Forms.Label _lbl25;
-        private System.Windows.Forms.NumericUpDown _numB;
+        private System.Windows.Forms.NumericUpDown _numBlue;
         private System.Windows.Forms.Label _lbl26;
     }
 }
